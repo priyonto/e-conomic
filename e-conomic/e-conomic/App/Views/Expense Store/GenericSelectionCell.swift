@@ -25,14 +25,18 @@ extension GenericSelectionCell {
         container.fillSuperview()
         
         container.addSubview(dataLbl)
-        dataLbl.fillSuperview(padding: .init(top: 16, left: 16, bottom: 16, right: 16))
+        dataLbl.anchor(top: container.topAnchor,
+                       leading: container.leadingAnchor,
+                       bottom: nil,
+                       trailing: container.trailingAnchor,
+                       padding: .init(top: 16, left: 16, bottom: 0, right: 16))
         
         container.addSubview(separator)
         separator.anchor(top: dataLbl.bottomAnchor,
-                         leading: container.leadingAnchor,
+                         leading: dataLbl.leadingAnchor,
                          bottom: container.bottomAnchor,
-                         trailing: container.trailingAnchor,
-                         padding: .init(top: 16, left: 16, bottom: 4, right: 16),
+                         trailing: dataLbl.trailingAnchor,
+                         padding: .init(top: 16, left: 0, bottom: 4, right: 0),
                          size: .init(width: 0, height: 0.2))
     }
 }
