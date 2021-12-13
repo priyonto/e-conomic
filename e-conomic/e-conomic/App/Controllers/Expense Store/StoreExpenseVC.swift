@@ -11,7 +11,21 @@ import UIKit
 
 class StoreExpenseVC: UIViewController {
     
+    // DEPENDENCY INJECTION
+    init(_ image: UIImage) {
+        super.init(nibName: nil, bundle: nil)
+        self.captureReceipt = image
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK:- VARIABLES
+    
+    fileprivate var captureReceipt: UIImage!
+    
+    //
     
     lazy var scrollView: UIScrollView = {
         let sv = UIScrollView()
@@ -65,6 +79,7 @@ class StoreExpenseVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        reciptIV.image = captureReceipt
     }
 }
 

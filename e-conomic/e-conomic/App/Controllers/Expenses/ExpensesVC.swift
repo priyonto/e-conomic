@@ -75,9 +75,29 @@ extension ExpensesVC {
 
 extension ExpensesVC {
     @objc fileprivate func handleCaptureButtonTap() {
-        presentStoreExpenseScreen()
+        // TODO:- HANDLE CAMERA PERMISSION PROPERLY
+        // IMPORTANT!!!
+        
+        let picker = UIImagePickerController()
+        picker.sourceType = .camera
+        picker.allowsEditing = true
+        picker.delegate = self
+        present(vc, animated: true)
     }
 }
+
+extension ExpensesVC: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true)
+        guard let image = info[.editedImage] as? UIImage else {
+            print("No image found")
+            return
+        }
+        presentStoreExpenseScreen(image)
+    }
+}
+
+
 
 // MARK:- UICOLLECTIONVIEW DELEGATE & DATA SOURCE
 extension ExpensesVC: UICollectionViewDelegate, UICollectionViewDataSource {

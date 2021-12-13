@@ -16,8 +16,8 @@ extension UIViewController {
     }
     
     
-    func presentStoreExpenseScreen() {
-        let controller = StoreExpenseVC()
+    func presentStoreExpenseScreen(_ image: UIImage) {
+        let controller = StoreExpenseVC(image)
         let navigationController = UINavigationController(rootViewController: controller)
         present(navigationController, animated: true, completion: nil)
     }
