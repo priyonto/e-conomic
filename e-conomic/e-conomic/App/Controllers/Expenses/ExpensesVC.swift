@@ -75,24 +75,56 @@ extension ExpensesVC {
 
 extension ExpensesVC {
     @objc fileprivate func handleCaptureButtonTap() {
-        // TODO:- HANDLE CAMERA PERMISSION PROPERLY
+        // TODO:- HANDLE CAMERA & GALLERY PERMISSION PROPERLY
         // IMPORTANT!!!
+        selectImageSource()
+    }
+    
+    fileprivate func selectImageSource() {
+        let alert = UIAlertController(title: nil, message: "Please Select Image Source", preferredStyle: .actionSheet)
         
+        alert.addAction(UIAlertAction(title: "Camera", style: .default , handler:{ [weak self] action in
+            guard let self = self else {return}
+            self.presentCameraController(.camera)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Photo Library", style: .default , handler:{ [weak self] action in
+            guard let self = self else {return}
+            self.presentCameraController(.photoLibrary)
+        }))
+
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        
+        //uncomment for iPad Support
+        //alert.popoverPresentationController?.sourceView = self.view
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    fileprivate func presentCameraController(_ source: UIImagePickerController.SourceType) {
         let picker = UIImagePickerController()
-        picker.sourceType = .camera
+        picker.sourceType = source
         picker.allowsEditing = true
         picker.delegate = self
-        present(vc, animated: true)
+        present(picker, animated: true)
     }
 }
 
 extension ExpensesVC: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        picker.dismiss(animated: true)
-        guard let image = info[.editedImage] as? UIImage else {
-            print("No image found")
+
+        var image: UIImage
+        
+        if let possibleImage = info[.editedImage] as? UIImage {
+            image = possibleImage
+        } else if let possibleImage = info[.originalImage] as? UIImage {
+            image = possibleImage
+        } else {
             return
         }
+
+        dismiss(animated: true)
         presentStoreExpenseScreen(image)
     }
 }

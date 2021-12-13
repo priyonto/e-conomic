@@ -4,5 +4,7 @@
 <dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Would you mind allowing camera access to capture images of invoices or receipts?</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Would you mind allowing photo library access to choose images of invoices or receipts?</string>
 </dict>
 </plist>
