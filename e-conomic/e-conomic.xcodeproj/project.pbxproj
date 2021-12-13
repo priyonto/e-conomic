@@ -29,6 +29,8 @@
 		341DD71427676AEA00507F1F /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341DD71327676AEA00507F1F /* BaseCollectionViewCell.swift */; };
 		341DD7162767796400507F1F /* ExpenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341DD7152767796400507F1F /* ExpenseCell.swift */; };
 		345B958027679057008C5B75 /* AssetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B957F27679057008C5B75 /* AssetManager.swift */; };
+		345B958327679EBB008C5B75 /* ExpenseDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B958227679EBB008C5B75 /* ExpenseDetailVC.swift */; };
+		345B95862767A192008C5B75 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95852767A192008C5B75 /* UIViewController+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		341DD71327676AEA00507F1F /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		341DD7152767796400507F1F /* ExpenseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCell.swift; sourceTree = "<group>"; };
 		345B957F27679057008C5B75 /* AssetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetManager.swift; sourceTree = "<group>"; };
+		345B958227679EBB008C5B75 /* ExpenseDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDetailVC.swift; sourceTree = "<group>"; };
+		345B95852767A192008C5B75 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +180,7 @@
 		341DD6EA276753C000507F1F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				345B958127679EA8008C5B75 /* Expense Details */,
 				341DD7102767696800507F1F /* Expenses */,
 			);
 			path = Controllers;
@@ -223,6 +228,7 @@
 		341DD6F02767540300507F1F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				345B95842767A15A008C5B75 /* UIViewController */,
 				341DD70D2767567B00507F1F /* Notification */,
 				341DD70A2767562C00507F1F /* UITextField */,
 				341DD707276755F200507F1F /* UIButton */,
@@ -340,6 +346,22 @@
 				345B957F27679057008C5B75 /* AssetManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		345B958127679EA8008C5B75 /* Expense Details */ = {
+			isa = PBXGroup;
+			children = (
+				345B958227679EBB008C5B75 /* ExpenseDetailVC.swift */,
+			);
+			path = "Expense Details";
+			sourceTree = "<group>";
+		};
+		345B95842767A15A008C5B75 /* UIViewController */ = {
+			isa = PBXGroup;
+			children = (
+				345B95852767A192008C5B75 /* UIViewController+Ext.swift */,
+			);
+			path = UIViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -479,8 +501,10 @@
 				341DD7092767560200507F1F /* UIButoon+Init.swift in Sources */,
 				341DD70F2767569000507F1F /* Notification+Ext.swift in Sources */,
 				341DD6F52767548A00507F1F /* UIView+Layout.swift in Sources */,
+				345B958327679EBB008C5B75 /* ExpenseDetailVC.swift in Sources */,
 				341DD6F32767545800507F1F /* UIView+Init.swift in Sources */,
 				341DD706276755D600507F1F /* UIColor+Init.swift in Sources */,
+				345B95862767A192008C5B75 /* UIViewController+Ext.swift in Sources */,
 				341DD7162767796400507F1F /* ExpenseCell.swift in Sources */,
 				345B958027679057008C5B75 /* AssetManager.swift in Sources */,
 				341DD6FD2767553E00507F1F /* UILabel+Init.swift in Sources */,

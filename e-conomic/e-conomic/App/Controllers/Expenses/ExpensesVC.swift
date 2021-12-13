@@ -95,6 +95,10 @@ extension ExpensesVC: UICollectionViewDelegate, UICollectionViewDataSource {
         }
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        navigateToExpenseDetailsScreen()
+    }
 }
 
 // MARK:- UICOLLECTIONVIEWDELEGAGEFLOWLAYOUT
