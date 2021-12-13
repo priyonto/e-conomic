@@ -14,7 +14,7 @@ extension UIButton {
     convenience init(backgroundColor: UIColor = .clear,
                      title: String? = "",
                      image: UIImage? = nil,
-                     titleColor: UIColor = .clear,
+                     titleColor: UIColor = .label,
                      font: UIFont = .AppleSDGothicNeo(.medium, size: 16), borderWidth: CGFloat = 0, borderColor: UIColor = .clear, cornerRadius: CGFloat = 0) {
         self.init()
         self.backgroundColor = backgroundColor
