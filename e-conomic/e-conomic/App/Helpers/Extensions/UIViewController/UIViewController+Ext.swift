@@ -18,6 +18,13 @@ extension UIViewController {
     
     func presentStoreExpenseScreen() {
         let controller = StoreExpenseVC()
-        present(controller, animated: true, completion: nil)
+        let navigationController = UINavigationController(rootViewController: controller)
+        present(navigationController, animated: true, completion: nil)
+    }
+    
+    
+    func navigateToGenericSelectionScreen(_ selectionState: SelectionState) {
+        let controller = GenericSelectionVC(selectionState: selectionState)
+        navigationController?.pushViewController(controller, animated: true)
     }
 }

@@ -143,9 +143,11 @@ extension StoreExpenseVC {
     
     @objc fileprivate func handleCurrencyChoiceTap() {
         //
+        navigateToGenericSelectionScreen(.currency)
     }
     
     @objc fileprivate func handleCategoryChoiceTap() {
         //
+        navigateToGenericSelectionScreen(.category)
     }
 }

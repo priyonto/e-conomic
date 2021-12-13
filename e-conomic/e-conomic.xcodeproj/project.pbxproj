@@ -33,6 +33,8 @@
 		345B95862767A192008C5B75 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95852767A192008C5B75 /* UIViewController+Ext.swift */; };
 		345B95892767AE4A008C5B75 /* StoreExpenseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95882767AE49008C5B75 /* StoreExpenseVC.swift */; };
 		345B958C2767C351008C5B75 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 345B958B2767C351008C5B75 /* IQKeyboardManagerSwift */; };
+		345B958E2767C51F008C5B75 /* GenericSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B958D2767C51F008C5B75 /* GenericSelectionVC.swift */; };
+		345B95912767C622008C5B75 /* GenericSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95902767C622008C5B75 /* GenericSelectionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,8 @@
 		345B958227679EBB008C5B75 /* ExpenseDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDetailVC.swift; sourceTree = "<group>"; };
 		345B95852767A192008C5B75 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		345B95882767AE49008C5B75 /* StoreExpenseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreExpenseVC.swift; sourceTree = "<group>"; };
+		345B958D2767C51F008C5B75 /* GenericSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericSelectionVC.swift; sourceTree = "<group>"; };
+		345B95902767C622008C5B75 /* GenericSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericSelectionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +212,7 @@
 		341DD6ED276753E200507F1F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				345B958F2767C60F008C5B75 /* Expense Store */,
 				341DD71227676A3D00507F1F /* Common */,
 				341DD711276769B900507F1F /* Expenses */,
 			);
@@ -373,6 +378,15 @@
 			isa = PBXGroup;
 			children = (
 				345B95882767AE49008C5B75 /* StoreExpenseVC.swift */,
+				345B958D2767C51F008C5B75 /* GenericSelectionVC.swift */,
+			);
+			path = "Expense Store";
+			sourceTree = "<group>";
+		};
+		345B958F2767C60F008C5B75 /* Expense Store */ = {
+			isa = PBXGroup;
+			children = (
+				345B95902767C622008C5B75 /* GenericSelectionCell.swift */,
 			);
 			path = "Expense Store";
 			sourceTree = "<group>";
@@ -517,6 +531,7 @@
 			files = (
 				341DD6FA276754DF00507F1F /* VStackView.swift in Sources */,
 				341DD71427676AEA00507F1F /* BaseCollectionViewCell.swift in Sources */,
+				345B95912767C622008C5B75 /* GenericSelectionCell.swift in Sources */,
 				341DD7092767560200507F1F /* UIButoon+Init.swift in Sources */,
 				341DD70F2767569000507F1F /* Notification+Ext.swift in Sources */,
 				341DD6F52767548A00507F1F /* UIView+Layout.swift in Sources */,
@@ -525,6 +540,7 @@
 				341DD706276755D600507F1F /* UIColor+Init.swift in Sources */,
 				345B95862767A192008C5B75 /* UIViewController+Ext.swift in Sources */,
 				341DD7162767796400507F1F /* ExpenseCell.swift in Sources */,
+				345B958E2767C51F008C5B75 /* GenericSelectionVC.swift in Sources */,
 				345B958027679057008C5B75 /* AssetManager.swift in Sources */,
 				345B95892767AE4A008C5B75 /* StoreExpenseVC.swift in Sources */,
 				341DD6FD2767553E00507F1F /* UILabel+Init.swift in Sources */,
