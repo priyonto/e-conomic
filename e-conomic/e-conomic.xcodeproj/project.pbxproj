@@ -28,6 +28,7 @@
 		341DD70F2767569000507F1F /* Notification+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341DD70E2767569000507F1F /* Notification+Ext.swift */; };
 		341DD71427676AEA00507F1F /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341DD71327676AEA00507F1F /* BaseCollectionViewCell.swift */; };
 		341DD7162767796400507F1F /* ExpenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341DD7152767796400507F1F /* ExpenseCell.swift */; };
+		345B958027679057008C5B75 /* AssetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B957F27679057008C5B75 /* AssetManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		341DD70E2767569000507F1F /* Notification+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Ext.swift"; sourceTree = "<group>"; };
 		341DD71327676AEA00507F1F /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		341DD7152767796400507F1F /* ExpenseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCell.swift; sourceTree = "<group>"; };
+		345B957F27679057008C5B75 /* AssetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +214,7 @@
 		341DD6EF276753FB00507F1F /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				345B957E27679040008C5B75 /* Managers */,
 				341DD6F02767540300507F1F /* Extensions */,
 			);
 			path = Helpers;
@@ -329,6 +332,14 @@
 				341DD71327676AEA00507F1F /* BaseCollectionViewCell.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		345B957E27679040008C5B75 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				345B957F27679057008C5B75 /* AssetManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -471,6 +482,7 @@
 				341DD6F32767545800507F1F /* UIView+Init.swift in Sources */,
 				341DD706276755D600507F1F /* UIColor+Init.swift in Sources */,
 				341DD7162767796400507F1F /* ExpenseCell.swift in Sources */,
+				345B958027679057008C5B75 /* AssetManager.swift in Sources */,
 				341DD6FD2767553E00507F1F /* UILabel+Init.swift in Sources */,
 				341DD7002767557600507F1F /* UIImageView+Init.swift in Sources */,
 				341DD6BD27674A0E00507F1F /* ExpensesVC.swift in Sources */,

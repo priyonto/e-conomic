@@ -27,6 +27,12 @@ class ExpensesVC: UIViewController {
         return cv
     }()
     
+    lazy var captureButton: UIButton = {
+        let button = UIButton(image: assetManager.image(assetNamed: .camera), cornerRadius: 30)
+        button.addTarget(self, action: #selector(handleCaptureButtonTap), for: .touchUpInside)
+        return button
+    }()
+    
     // MARK:- CONSTANTS
     
     fileprivate let cellIdentifier: String = "cellIdentifier"
@@ -52,10 +58,24 @@ extension ExpensesVC {
         
         view.addSubview(collectionView)
         collectionView.fillSuperview()
+        
+        view.addSubview(captureButton)
+        captureButton.anchor(top: nil,
+                             leading: nil,
+                             bottom: view.safeBottomAnchor,
+                             trailing: view.trailingAnchor,
+                             padding: .init(top: 0, left: 0, bottom: 24, right: 24),
+                             size: .init(width: 60, height: 60))
     }
     
     fileprivate func registerCell() {
         collectionView.register(ExpenseCell.self, forCellWithReuseIdentifier: cellIdentifier)
+    }
+}
+
+extension ExpensesVC {
+    @objc fileprivate func handleCaptureButtonTap() {
+        print("Tapped")
     }
 }
 
@@ -97,4 +117,25 @@ extension ExpensesVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return .init(top: 16, left: 0, bottom: 0, right: 0)
     }
+}
+
+// SCROLL ACTIONS
+extension ExpensesVC {
+    
+    // Hide the floating button when the scrolling starts, after 0.5 seconds delay
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        UIView.animate(withDuration: 0.5, animations: { [weak self] in
+            guard let self = self else {return}
+            self.captureButton.alpha = 0
+        })
+    }
+    
+    // Show the floating button when the scrolling ends, after 0.5 seconds delay
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        UIView.animate(withDuration: 0.5, animations: { [weak self] in
+            guard let self = self else {return}
+            self.captureButton.alpha = 1
+        })
+    }
+    
 }
