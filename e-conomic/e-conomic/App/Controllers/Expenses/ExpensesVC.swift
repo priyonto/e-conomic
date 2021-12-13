@@ -75,7 +75,7 @@ extension ExpensesVC {
 
 extension ExpensesVC {
     @objc fileprivate func handleCaptureButtonTap() {
-        print("Tapped")
+        presentStoreExpenseScreen()
     }
 }
 

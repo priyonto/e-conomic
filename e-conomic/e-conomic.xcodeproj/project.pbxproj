@@ -31,6 +31,7 @@
 		345B958027679057008C5B75 /* AssetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B957F27679057008C5B75 /* AssetManager.swift */; };
 		345B958327679EBB008C5B75 /* ExpenseDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B958227679EBB008C5B75 /* ExpenseDetailVC.swift */; };
 		345B95862767A192008C5B75 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95852767A192008C5B75 /* UIViewController+Ext.swift */; };
+		345B95892767AE4A008C5B75 /* StoreExpenseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95882767AE49008C5B75 /* StoreExpenseVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		345B957F27679057008C5B75 /* AssetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetManager.swift; sourceTree = "<group>"; };
 		345B958227679EBB008C5B75 /* ExpenseDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDetailVC.swift; sourceTree = "<group>"; };
 		345B95852767A192008C5B75 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		345B95882767AE49008C5B75 /* StoreExpenseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreExpenseVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +182,7 @@
 		341DD6EA276753C000507F1F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				345B95872767AE26008C5B75 /* Expense Store */,
 				345B958127679EA8008C5B75 /* Expense Details */,
 				341DD7102767696800507F1F /* Expenses */,
 			);
@@ -364,6 +367,14 @@
 			path = UIViewController;
 			sourceTree = "<group>";
 		};
+		345B95872767AE26008C5B75 /* Expense Store */ = {
+			isa = PBXGroup;
+			children = (
+				345B95882767AE49008C5B75 /* StoreExpenseVC.swift */,
+			);
+			path = "Expense Store";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -507,6 +518,7 @@
 				345B95862767A192008C5B75 /* UIViewController+Ext.swift in Sources */,
 				341DD7162767796400507F1F /* ExpenseCell.swift in Sources */,
 				345B958027679057008C5B75 /* AssetManager.swift in Sources */,
+				345B95892767AE4A008C5B75 /* StoreExpenseVC.swift in Sources */,
 				341DD6FD2767553E00507F1F /* UILabel+Init.swift in Sources */,
 				341DD7002767557600507F1F /* UIImageView+Init.swift in Sources */,
 				341DD6BD27674A0E00507F1F /* ExpensesVC.swift in Sources */,

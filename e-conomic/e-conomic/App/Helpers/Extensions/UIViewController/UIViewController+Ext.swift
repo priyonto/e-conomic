@@ -14,4 +14,10 @@ extension UIViewController {
         let controller = ExpenseDetailsVC()
         navigationController?.pushViewController(controller, animated: true)
     }
+    
+    
+    func presentStoreExpenseScreen() {
+        let controller = StoreExpenseVC()
+        present(controller, animated: true, completion: nil)
+    }
 }
