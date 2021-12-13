@@ -26,6 +26,7 @@
 		341DD7092767560200507F1F /* UIButoon+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341DD7082767560200507F1F /* UIButoon+Init.swift */; };
 		341DD70C2767564000507F1F /* UITextField+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341DD70B2767564000507F1F /* UITextField+Init.swift */; };
 		341DD70F2767569000507F1F /* Notification+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341DD70E2767569000507F1F /* Notification+Ext.swift */; };
+		341DD71427676AEA00507F1F /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341DD71327676AEA00507F1F /* BaseCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		341DD7082767560200507F1F /* UIButoon+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButoon+Init.swift"; sourceTree = "<group>"; };
 		341DD70B2767564000507F1F /* UITextField+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Init.swift"; sourceTree = "<group>"; };
 		341DD70E2767569000507F1F /* Notification+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Ext.swift"; sourceTree = "<group>"; };
+		341DD71327676AEA00507F1F /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -321,6 +323,7 @@
 		341DD71227676A3D00507F1F /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				341DD71327676AEA00507F1F /* BaseCollectionViewCell.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -458,6 +461,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				341DD6FA276754DF00507F1F /* VStackView.swift in Sources */,
+				341DD71427676AEA00507F1F /* BaseCollectionViewCell.swift in Sources */,
 				341DD7092767560200507F1F /* UIButoon+Init.swift in Sources */,
 				341DD70F2767569000507F1F /* Notification+Ext.swift in Sources */,
 				341DD6F52767548A00507F1F /* UIView+Layout.swift in Sources */,
