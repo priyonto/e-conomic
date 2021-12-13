@@ -32,6 +32,7 @@
 		345B958327679EBB008C5B75 /* ExpenseDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B958227679EBB008C5B75 /* ExpenseDetailVC.swift */; };
 		345B95862767A192008C5B75 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95852767A192008C5B75 /* UIViewController+Ext.swift */; };
 		345B95892767AE4A008C5B75 /* StoreExpenseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95882767AE49008C5B75 /* StoreExpenseVC.swift */; };
+		345B958C2767C351008C5B75 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 345B958B2767C351008C5B75 /* IQKeyboardManagerSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				345B958C2767C351008C5B75 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,6 +393,9 @@
 			dependencies = (
 			);
 			name = "e-conomic";
+			packageProductDependencies = (
+				345B958B2767C351008C5B75 /* IQKeyboardManagerSwift */,
+			);
 			productName = "e-conomic";
 			productReference = 341DD6B527674A0E00507F1F /* e-conomic.app */;
 			productType = "com.apple.product-type.application";
@@ -464,6 +469,9 @@
 				Base,
 			);
 			mainGroup = 341DD6AC27674A0E00507F1F;
+			packageReferences = (
+				345B958A2767C351008C5B75 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+			);
 			productRefGroup = 341DD6B627674A0E00507F1F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -891,6 +899,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		345B958A2767C351008C5B75 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		345B958B2767C351008C5B75 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 345B958A2767C351008C5B75 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 341DD6AD27674A0E00507F1F /* Project object */;
 }
