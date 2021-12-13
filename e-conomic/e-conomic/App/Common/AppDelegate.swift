@@ -24,6 +24,7 @@ extension AppDelegate {
     // Expenses screen is the entry point of the application
     fileprivate func setupEntryScreen() {
         let navigationController = UINavigationController(rootViewController: ExpensesVC())
+        navigationController.navigationBar.prefersLargeTitles = true
         window?.rootViewController = navigationController
     }
 }
