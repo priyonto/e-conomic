@@ -13,7 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
         setupEntryScreen()
         return true
     }
@@ -21,8 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension AppDelegate {
+    
+    // Expenses screen is the entry point of the application
     fileprivate func setupEntryScreen() {
-        window?.rootViewController = InitialVC()
+        window?.rootViewController = ExpensesVC()
     }
 }
 

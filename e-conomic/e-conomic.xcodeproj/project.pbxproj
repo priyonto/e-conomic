@@ -15,6 +15,17 @@
 		341DD6D027674A1000507F1F /* e_conomicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341DD6CF27674A1000507F1F /* e_conomicTests.swift */; };
 		341DD6DA27674A1000507F1F /* e_conomicUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341DD6D927674A1000507F1F /* e_conomicUITests.swift */; };
 		341DD6DC27674A1000507F1F /* e_conomicUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341DD6DB27674A1000507F1F /* e_conomicUITestsLaunchTests.swift */; };
+		341DD6F32767545800507F1F /* UIView+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341DD6F22767545800507F1F /* UIView+Init.swift */; };
+		341DD6F52767548A00507F1F /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341DD6F42767548A00507F1F /* UIView+Layout.swift */; };
+		341DD6F8276754CB00507F1F /* HStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341DD6F7276754CB00507F1F /* HStackView.swift */; };
+		341DD6FA276754DF00507F1F /* VStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341DD6F9276754DF00507F1F /* VStackView.swift */; };
+		341DD6FD2767553E00507F1F /* UILabel+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341DD6FC2767553E00507F1F /* UILabel+Init.swift */; };
+		341DD7002767557600507F1F /* UIImageView+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341DD6FF2767557600507F1F /* UIImageView+Init.swift */; };
+		341DD7032767559B00507F1F /* UIFont+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341DD7022767559B00507F1F /* UIFont+Ext.swift */; };
+		341DD706276755D600507F1F /* UIColor+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341DD705276755D600507F1F /* UIColor+Init.swift */; };
+		341DD7092767560200507F1F /* UIButoon+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341DD7082767560200507F1F /* UIButoon+Init.swift */; };
+		341DD70C2767564000507F1F /* UITextField+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341DD70B2767564000507F1F /* UITextField+Init.swift */; };
+		341DD70F2767569000507F1F /* Notification+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341DD70E2767569000507F1F /* Notification+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +58,17 @@
 		341DD6D527674A1000507F1F /* e-conomicUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "e-conomicUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		341DD6D927674A1000507F1F /* e_conomicUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = e_conomicUITests.swift; sourceTree = "<group>"; };
 		341DD6DB27674A1000507F1F /* e_conomicUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = e_conomicUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		341DD6F22767545800507F1F /* UIView+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Init.swift"; sourceTree = "<group>"; };
+		341DD6F42767548A00507F1F /* UIView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
+		341DD6F7276754CB00507F1F /* HStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HStackView.swift; sourceTree = "<group>"; };
+		341DD6F9276754DF00507F1F /* VStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VStackView.swift; sourceTree = "<group>"; };
+		341DD6FC2767553E00507F1F /* UILabel+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Init.swift"; sourceTree = "<group>"; };
+		341DD6FF2767557600507F1F /* UIImageView+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Init.swift"; sourceTree = "<group>"; };
+		341DD7022767559B00507F1F /* UIFont+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Ext.swift"; sourceTree = "<group>"; };
+		341DD705276755D600507F1F /* UIColor+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Init.swift"; sourceTree = "<group>"; };
+		341DD7082767560200507F1F /* UIButoon+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButoon+Init.swift"; sourceTree = "<group>"; };
+		341DD70B2767564000507F1F /* UITextField+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Init.swift"; sourceTree = "<group>"; };
+		341DD70E2767569000507F1F /* Notification+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,11 +119,9 @@
 		341DD6B727674A0E00507F1F /* e-conomic */ = {
 			isa = PBXGroup;
 			children = (
-				341DD6B827674A0E00507F1F /* AppDelegate.swift */,
+				341DD6E82767532A00507F1F /* App */,
 				341DD6BC27674A0E00507F1F /* InitialVC.swift */,
-				341DD6BE27674A0E00507F1F /* Main.storyboard */,
 				341DD6C127674A1000507F1F /* Assets.xcassets */,
-				341DD6C327674A1000507F1F /* LaunchScreen.storyboard */,
 				341DD6C627674A1000507F1F /* Info.plist */,
 			);
 			path = "e-conomic";
@@ -122,6 +142,163 @@
 				341DD6DB27674A1000507F1F /* e_conomicUITestsLaunchTests.swift */,
 			);
 			path = "e-conomicUITests";
+			sourceTree = "<group>";
+		};
+		341DD6E82767532A00507F1F /* App */ = {
+			isa = PBXGroup;
+			children = (
+				341DD6EF276753FB00507F1F /* Helpers */,
+				341DD6EE276753F100507F1F /* Resources */,
+				341DD6ED276753E200507F1F /* Views */,
+				341DD6EC276753CF00507F1F /* ViewModels */,
+				341DD6EB276753C900507F1F /* Models */,
+				341DD6EA276753C000507F1F /* Controllers */,
+				341DD6E92767539A00507F1F /* Common */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		341DD6E92767539A00507F1F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				341DD6B827674A0E00507F1F /* AppDelegate.swift */,
+				341DD6BE27674A0E00507F1F /* Main.storyboard */,
+				341DD6C327674A1000507F1F /* LaunchScreen.storyboard */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		341DD6EA276753C000507F1F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		341DD6EB276753C900507F1F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		341DD6EC276753CF00507F1F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		341DD6ED276753E200507F1F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		341DD6EE276753F100507F1F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		341DD6EF276753FB00507F1F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				341DD6F02767540300507F1F /* Extensions */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		341DD6F02767540300507F1F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				341DD70D2767567B00507F1F /* Notification */,
+				341DD70A2767562C00507F1F /* UITextField */,
+				341DD707276755F200507F1F /* UIButton */,
+				341DD704276755C300507F1F /* UIColor */,
+				341DD7012767557F00507F1F /* UIFont */,
+				341DD6FE2767556600507F1F /* UIImageView */,
+				341DD6FB2767552F00507F1F /* UILabel */,
+				341DD6F6276754AE00507F1F /* UIStackView */,
+				341DD6F12767540900507F1F /* UIView */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		341DD6F12767540900507F1F /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				341DD6F22767545800507F1F /* UIView+Init.swift */,
+				341DD6F42767548A00507F1F /* UIView+Layout.swift */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		341DD6F6276754AE00507F1F /* UIStackView */ = {
+			isa = PBXGroup;
+			children = (
+				341DD6F7276754CB00507F1F /* HStackView.swift */,
+				341DD6F9276754DF00507F1F /* VStackView.swift */,
+			);
+			path = UIStackView;
+			sourceTree = "<group>";
+		};
+		341DD6FB2767552F00507F1F /* UILabel */ = {
+			isa = PBXGroup;
+			children = (
+				341DD6FC2767553E00507F1F /* UILabel+Init.swift */,
+			);
+			path = UILabel;
+			sourceTree = "<group>";
+		};
+		341DD6FE2767556600507F1F /* UIImageView */ = {
+			isa = PBXGroup;
+			children = (
+				341DD6FF2767557600507F1F /* UIImageView+Init.swift */,
+			);
+			path = UIImageView;
+			sourceTree = "<group>";
+		};
+		341DD7012767557F00507F1F /* UIFont */ = {
+			isa = PBXGroup;
+			children = (
+				341DD7022767559B00507F1F /* UIFont+Ext.swift */,
+			);
+			path = UIFont;
+			sourceTree = "<group>";
+		};
+		341DD704276755C300507F1F /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				341DD705276755D600507F1F /* UIColor+Init.swift */,
+			);
+			path = UIColor;
+			sourceTree = "<group>";
+		};
+		341DD707276755F200507F1F /* UIButton */ = {
+			isa = PBXGroup;
+			children = (
+				341DD7082767560200507F1F /* UIButoon+Init.swift */,
+			);
+			path = UIButton;
+			sourceTree = "<group>";
+		};
+		341DD70A2767562C00507F1F /* UITextField */ = {
+			isa = PBXGroup;
+			children = (
+				341DD70B2767564000507F1F /* UITextField+Init.swift */,
+			);
+			path = UITextField;
+			sourceTree = "<group>";
+		};
+		341DD70D2767567B00507F1F /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				341DD70E2767569000507F1F /* Notification+Ext.swift */,
+			);
+			path = Notification;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,8 +433,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				341DD6FA276754DF00507F1F /* VStackView.swift in Sources */,
+				341DD7092767560200507F1F /* UIButoon+Init.swift in Sources */,
+				341DD70F2767569000507F1F /* Notification+Ext.swift in Sources */,
+				341DD6F52767548A00507F1F /* UIView+Layout.swift in Sources */,
+				341DD6F32767545800507F1F /* UIView+Init.swift in Sources */,
+				341DD706276755D600507F1F /* UIColor+Init.swift in Sources */,
+				341DD6FD2767553E00507F1F /* UILabel+Init.swift in Sources */,
+				341DD7002767557600507F1F /* UIImageView+Init.swift in Sources */,
 				341DD6BD27674A0E00507F1F /* InitialVC.swift in Sources */,
+				341DD7032767559B00507F1F /* UIFont+Ext.swift in Sources */,
+				341DD6F8276754CB00507F1F /* HStackView.swift in Sources */,
 				341DD6B927674A0E00507F1F /* AppDelegate.swift in Sources */,
+				341DD70C2767564000507F1F /* UITextField+Init.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
