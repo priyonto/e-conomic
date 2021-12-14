@@ -41,6 +41,10 @@
 		345B959B2768A80E008C5B75 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B959A2768A80E008C5B75 /* Expense.swift */; };
 		345B959D2768A8A1008C5B75 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B959C2768A8A1008C5B75 /* Protocol.swift */; };
 		345B95A02768AA6E008C5B75 /* FileManager+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B959F2768AA6E008C5B75 /* FileManager+Ext.swift */; };
+		345B95A42768ADEF008C5B75 /* currencies.json in Resources */ = {isa = PBXBuildFile; fileRef = 345B95A32768ADEF008C5B75 /* currencies.json */; };
+		345B95A62768AFA0008C5B75 /* categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 345B95A52768AFA0008C5B75 /* categories.json */; };
+		345B95A82768B4D6008C5B75 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95A72768B4D6008C5B75 /* Currency.swift */; };
+		345B95AA2768B504008C5B75 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95A92768B504008C5B75 /* Category.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +101,10 @@
 		345B959A2768A80E008C5B75 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		345B959C2768A8A1008C5B75 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		345B959F2768AA6E008C5B75 /* FileManager+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Ext.swift"; sourceTree = "<group>"; };
+		345B95A32768ADEF008C5B75 /* currencies.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = currencies.json; sourceTree = "<group>"; };
+		345B95A52768AFA0008C5B75 /* categories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = categories.json; sourceTree = "<group>"; };
+		345B95A72768B4D6008C5B75 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		345B95A92768B504008C5B75 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +219,8 @@
 			isa = PBXGroup;
 			children = (
 				345B959A2768A80E008C5B75 /* Expense.swift */,
+				345B95A72768B4D6008C5B75 /* Currency.swift */,
+				345B95A92768B504008C5B75 /* Category.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -235,6 +245,8 @@
 		341DD6EE276753F100507F1F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				345B95A32768ADEF008C5B75 /* currencies.json */,
+				345B95A52768AFA0008C5B75 /* categories.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -537,8 +549,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				345B95A42768ADEF008C5B75 /* currencies.json in Resources */,
 				341DD6C527674A1000507F1F /* LaunchScreen.storyboard in Resources */,
 				341DD6C227674A1000507F1F /* Assets.xcassets in Resources */,
+				345B95A62768AFA0008C5B75 /* categories.json in Resources */,
 				341DD6C027674A0E00507F1F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -573,6 +587,7 @@
 				341DD70F2767569000507F1F /* Notification+Ext.swift in Sources */,
 				341DD6F52767548A00507F1F /* UIView+Layout.swift in Sources */,
 				345B958327679EBB008C5B75 /* ExpenseDetailVC.swift in Sources */,
+				345B95A82768B4D6008C5B75 /* Currency.swift in Sources */,
 				341DD6F32767545800507F1F /* UIView+Init.swift in Sources */,
 				341DD706276755D600507F1F /* UIColor+Init.swift in Sources */,
 				345B95862767A192008C5B75 /* UIViewController+Ext.swift in Sources */,
@@ -590,6 +605,7 @@
 				341DD6F8276754CB00507F1F /* HStackView.swift in Sources */,
 				341DD6B927674A0E00507F1F /* AppDelegate.swift in Sources */,
 				341DD70C2767564000507F1F /* UITextField+Init.swift in Sources */,
+				345B95AA2768B504008C5B75 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

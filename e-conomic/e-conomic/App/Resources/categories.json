@@ -1,0 +1,42 @@
+//
+//  categories.json
+//  e-conomic
+//
+//  Created by iPriyo on 14/12/21.
+//  Copyright © 2021 Priyoneer. All rights reserved.
+//
+
+[
+    {
+        "id": 1,
+        "name":"Grocery"
+    },
+    {
+        "id": 2,
+        "name":"Food"
+    },
+    {
+        "id": 3,
+        "name":"Dairy"
+    },
+    {
+        "id": 4,
+        "name":"Utilities"
+    },
+    {
+        "id": 5,
+        "name":"Transport"
+    },
+    {
+        "id": 6,
+        "name":"Bill"
+    },
+    {
+        "id": 7,
+        "name":"Travel"
+    },
+    {
+        "id": 8,
+        "name":"Other"
+    },
+]
