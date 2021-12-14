@@ -26,6 +26,7 @@ class StoreExpenseVC: UIViewController {
     fileprivate var captureReceipt: UIImage!
     fileprivate var selectedCategory: Category!
     fileprivate var selectedCurrency: Currency!
+    fileprivate var selectedDate: Int64 = 0
     
     //
     
@@ -55,7 +56,21 @@ class StoreExpenseVC: UIViewController {
     // Textfields declaration
     
     lazy var nameTextField = UITextField(placeHolder: "Where did you spend?")
+    
     lazy var dateTextField = UITextField(placeHolder: "When did you spend?")
+    lazy var datePicker: UIDatePicker = {
+        let datePicker = UIDatePicker()
+        datePicker.translatesAutoresizingMaskIntoConstraints = false
+        datePicker.autoresizingMask = .flexibleWidth
+        datePicker.datePickerMode = .dateAndTime
+        datePicker.addTarget(self, action: #selector(self.dateChanged), for: .valueChanged)
+        if #available(iOS 14, *) {
+            datePicker.preferredDatePickerStyle = .wheels
+        }
+        return datePicker
+    }()
+    
+    
     lazy var currencyTextField: UITextField = {
         let textfield = UITextField(placeHolder: "Select currency")
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleCurrencyChoiceTap))
@@ -87,6 +102,7 @@ class StoreExpenseVC: UIViewController {
         super.viewDidLoad()
         setupUI()
         bindViewModel()
+        setupDatePicker()
         reciptIV.image = captureReceipt
     }
 }
@@ -98,7 +114,7 @@ extension StoreExpenseVC {
             guard let self = self else {return}
             switch result {
             case .success:
-                // Do something
+                self.makeRequest()
             case .failure:
                 // Show error
                 return
@@ -114,6 +130,19 @@ extension StoreExpenseVC {
                                      currency: currencyTextField.text,
                                      amount: amountTextField.text.doubleValue,
                                      category: categoryTextField.text)
+    }
+    
+    
+    fileprivate func makeRequest() {
+        let expense = Expense(id: "",
+                              date: dateTextField.text.int64Value!,
+                              placeName: nameTextField.text!,
+                              currencyName: selectedCurrency.name,
+                              currencySymbol: selectedCurrency.symbol,
+                              amount: amountTextField.text.doubleValue!,
+                              category: categoryTextField.text!,
+                              receiptURL: URL(string: "/somepath/some.png")!)
+        viewModel.store(with: expense)
     }
 
 }
@@ -182,6 +211,43 @@ extension StoreExpenseVC {
                            size: .init(width: 0, height: 56))
         
     
+    }
+    
+    fileprivate func setupDatePicker() {
+
+        dateTextField.inputView = datePicker
+        let blankSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem.init(title: "Cancel", style: .done, target: self, action: #selector(datePickerCancel))
+        let doneButton = UIBarButtonItem.init(title: "Done", style: .done, target: self, action: #selector(datePickerDone))
+        let toolBar = UIToolbar.init(frame: CGRect(x: 0, y: 0, width: view.bounds.size.width, height: 44))
+        toolBar.setItems([cancelButton, blankSpace, doneButton], animated: true)
+        dateTextField.inputAccessoryView = toolBar
+    }
+    
+
+    @objc fileprivate func datePickerCancel() {
+        dateTextField.resignFirstResponder()
+        //delegate?.didTapCancel(sender: self)
+    }
+    
+    @objc fileprivate func datePickerDone() {
+        if selectedDate != 0 {
+            dateTextField.resignFirstResponder()
+        } else {
+            handleSelectedDate(with: datePicker.date)
+            dateTextField.resignFirstResponder()
+        }
+    }
+    
+    @objc fileprivate func dateChanged() {
+        handleSelectedDate(with: datePicker.date)
+    }
+    
+    fileprivate func handleSelectedDate(with date: Date) {
+        selectedDate = date.millisecondsSince1970
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMM yyyy, HH:mm"
+        dateTextField.text = dateFormatter.string(from: date)
     }
 }
 
