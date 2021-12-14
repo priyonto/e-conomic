@@ -62,8 +62,12 @@ extension ExpensesVC {
             self.expenses = result
             self.reload()
         }
-        
+        getExpenses()
+    }
+    
+    fileprivate func getExpenses() {
         viewModel.getExpenses()
+        viewModel.subscribeToChanges()
     }
     
     fileprivate func reload() {

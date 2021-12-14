@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 class ExpenseViewModel: NSObject {
     
@@ -18,6 +19,8 @@ class ExpenseViewModel: NSObject {
     var imageStoreSubscriber: ((_ result: Bool, _ url: URL?) -> ())?
     var expenseStoreSubscriber: ((_ result: Bool) -> (Void))!
     var expenseListSubscriber: ((_ result: [Expense]) -> ())?
+    
+    var notificationToken: NotificationToken?
     
     
     override init() {
@@ -71,6 +74,14 @@ extension ExpenseViewModel {
         let fileManager = FileManager.default
         let documentURL = fileManager.libraryPath()?.appendingPathComponent(name)
         return documentURL
+    }
+    
+    func subscribeToChanges() {
+        let results = realm.objects(Expense.StorageClass.self)
+        notificationToken = results.observe { [weak self] _ in
+            guard let self = self else {return}
+            self.getExpenses()
+        }
     }
     
     func store(imageData: Data) {
