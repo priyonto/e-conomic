@@ -24,6 +24,8 @@ class StoreExpenseVC: UIViewController {
     // MARK:- VARIABLES
     
     fileprivate var captureReceipt: UIImage!
+    fileprivate var selectedCategory: Category!
+    fileprivate var selectedCurrency: Currency!
     
     //
     
@@ -76,11 +78,44 @@ class StoreExpenseVC: UIViewController {
         return button
     }()
     
+    // CONSTANTS
+    
+    fileprivate let viewModel = ExpenseViewModel()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        bindViewModel()
         reciptIV.image = captureReceipt
     }
+}
+
+extension StoreExpenseVC {
+    
+    fileprivate func bindViewModel() {
+        viewModel.fieldValidationResult = { [weak self] (result) in
+            guard let self = self else {return}
+            switch result {
+            case .success:
+                // Do something
+            case .failure:
+                // Show error
+                return
+            }
+        }
+        
+        validateTextFields()
+    }
+    
+    fileprivate func validateTextFields() {
+        viewModel.validateTextFields(place_name: nameTextField.text,
+                                     date: dateTextField.text.int64Value,
+                                     currency: currencyTextField.text,
+                                     amount: amountTextField.text.doubleValue,
+                                     category: categoryTextField.text)
+    }
+
 }
 
 
@@ -155,8 +190,10 @@ extension StoreExpenseVC: GenericSelectionDelegate {
     func didSelectItem(item: Any) {
         if let item = item as? Category {
             categoryTextField.text = item.name
+            selectedCategory = item
         } else if let item = item as? Currency {
             currencyTextField.text = "\(item.name) - \(item.symbol)"
+            selectedCurrency = item
         } else {
             // something out of the context
         }
@@ -168,7 +205,7 @@ extension StoreExpenseVC: GenericSelectionDelegate {
 
 extension StoreExpenseVC {
     @objc fileprivate func handleRecordCreateTap() {
-        dismiss(animated: true, completion: nil)
+        validateTextFields()
     }
     
     @objc fileprivate func handleCurrencyChoiceTap() {

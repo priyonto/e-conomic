@@ -48,6 +48,8 @@
 		345B95AC2768B67D008C5B75 /* ExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95AB2768B67D008C5B75 /* ExpenseViewModel.swift */; };
 		345B95AF2768CA00008C5B75 /* Decodable+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95AE2768CA00008C5B75 /* Decodable+Ext.swift */; };
 		345B95B12768D0C3008C5B75 /* GenericSelectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95B02768D0C2008C5B75 /* GenericSelectionProtocol.swift */; };
+		345B95B42768D9BE008C5B75 /* FieldValidationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95B32768D9BE008C5B75 /* FieldValidationResponse.swift */; };
+		345B95B72768DA56008C5B75 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95B62768DA56008C5B75 /* String+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +113,8 @@
 		345B95AB2768B67D008C5B75 /* ExpenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseViewModel.swift; sourceTree = "<group>"; };
 		345B95AE2768CA00008C5B75 /* Decodable+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decodable+Ext.swift"; sourceTree = "<group>"; };
 		345B95B02768D0C2008C5B75 /* GenericSelectionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericSelectionProtocol.swift; sourceTree = "<group>"; };
+		345B95B32768D9BE008C5B75 /* FieldValidationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldValidationResponse.swift; sourceTree = "<group>"; };
+		345B95B62768DA56008C5B75 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +265,7 @@
 		341DD6EF276753FB00507F1F /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				345B95B22768D9AB008C5B75 /* Enums */,
 				345B9595276886C8008C5B75 /* Realm */,
 				345B957E27679040008C5B75 /* Managers */,
 				341DD6F02767540300507F1F /* Extensions */,
@@ -271,6 +276,7 @@
 		341DD6F02767540300507F1F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				345B95B52768DA49008C5B75 /* String */,
 				345B95AD2768C9EF008C5B75 /* Decodable */,
 				345B959E2768AA5E008C5B75 /* FileManager */,
 				345B95842767A15A008C5B75 /* UIViewController */,
@@ -453,6 +459,22 @@
 			path = Decodable;
 			sourceTree = "<group>";
 		};
+		345B95B22768D9AB008C5B75 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				345B95B32768D9BE008C5B75 /* FieldValidationResponse.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		345B95B52768DA49008C5B75 /* String */ = {
+			isa = PBXGroup;
+			children = (
+				345B95B62768DA56008C5B75 /* String+Ext.swift */,
+			);
+			path = String;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -616,7 +638,9 @@
 				345B95A02768AA6E008C5B75 /* FileManager+Ext.swift in Sources */,
 				345B958027679057008C5B75 /* AssetManager.swift in Sources */,
 				345B95B12768D0C3008C5B75 /* GenericSelectionProtocol.swift in Sources */,
+				345B95B72768DA56008C5B75 /* String+Ext.swift in Sources */,
 				345B9597276886D8008C5B75 /* RealmManager.swift in Sources */,
+				345B95B42768D9BE008C5B75 /* FieldValidationResponse.swift in Sources */,
 				345B95892767AE4A008C5B75 /* StoreExpenseVC.swift in Sources */,
 				341DD6FD2767553E00507F1F /* UILabel+Init.swift in Sources */,
 				341DD7002767557600507F1F /* UIImageView+Init.swift in Sources */,

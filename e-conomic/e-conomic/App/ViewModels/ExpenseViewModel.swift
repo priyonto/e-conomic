@@ -13,9 +13,54 @@ class ExpenseViewModel: NSObject {
     var currenciesSubscriber: ((_ result: [Currency]) ->())?
     var categoriesSubscriber: ((_ result: [Category]) ->())?
     
+    var fieldValidationResult: ((FieldValidationResponse)->())?
+    
     
     override init() {
         super.init()
+    }
+}
+
+extension ExpenseViewModel {
+    
+    func validateTextFields(place_name: String?, date: Int64?, currency: String?, amount: Double?, category: String? ) {
+        guard !place_name.nullOrEmpty else {
+            let field = Field(name: .place_name, message: "Enter a valid email name")
+            fieldValidationResult?(.failure(field: field))
+            return
+        }
+        
+        guard let date = date, date > 0 else {
+            let field = Field(name: .date, message: "Enter a valid date")
+            fieldValidationResult?(.failure(field: field))
+            return
+        }
+        
+        guard !currency.nullOrEmpty else {
+            let field = Field(name: .currency, message: "Select a valid currency")
+            fieldValidationResult?(.failure(field: field))
+            return
+        }
+        
+        guard let amount = amount, amount > 0 else {
+            let field = Field(name: .amount, message: "Enter a valid amount")
+            fieldValidationResult?(.failure(field: field))
+            return
+        }
+        
+        guard !category.nullOrEmpty else {
+            let field = Field(name: .category, message: "Select a valid category")
+            fieldValidationResult?(.failure(field: field))
+            return
+        }
+        
+        fieldValidationResult?(.success)
+    }
+}
+
+extension ExpenseViewModel {
+    func store(with expense: Expense) {
+        RealmManager.shared.add(expense.convertToStorage())
     }
 }
 
