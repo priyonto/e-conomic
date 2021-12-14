@@ -35,6 +35,7 @@
 		345B958C2767C351008C5B75 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 345B958B2767C351008C5B75 /* IQKeyboardManagerSwift */; };
 		345B958E2767C51F008C5B75 /* GenericSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B958D2767C51F008C5B75 /* GenericSelectionVC.swift */; };
 		345B95912767C622008C5B75 /* GenericSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95902767C622008C5B75 /* GenericSelectionCell.swift */; };
+		345B9594276882EF008C5B75 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 345B9593276882EF008C5B75 /* RealmSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				345B9594276882EF008C5B75 /* RealmSwift in Frameworks */,
 				345B958C2767C351008C5B75 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,6 +411,7 @@
 			name = "e-conomic";
 			packageProductDependencies = (
 				345B958B2767C351008C5B75 /* IQKeyboardManagerSwift */,
+				345B9593276882EF008C5B75 /* RealmSwift */,
 			);
 			productName = "e-conomic";
 			productReference = 341DD6B527674A0E00507F1F /* e-conomic.app */;
@@ -485,6 +488,7 @@
 			mainGroup = 341DD6AC27674A0E00507F1F;
 			packageReferences = (
 				345B958A2767C351008C5B75 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				345B9592276882EF008C5B75 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 			);
 			productRefGroup = 341DD6B627674A0E00507F1F /* Products */;
 			projectDirPath = "";
@@ -925,6 +929,14 @@
 				minimumVersion = 6.0.0;
 			};
 		};
+		345B9592276882EF008C5B75 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -932,6 +944,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 345B958A2767C351008C5B75 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
+		};
+		345B9593276882EF008C5B75 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 345B9592276882EF008C5B75 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
