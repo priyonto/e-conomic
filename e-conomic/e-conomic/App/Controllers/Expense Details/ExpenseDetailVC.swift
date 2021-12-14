@@ -10,7 +10,20 @@ import UIKit
 
 class ExpenseDetailsVC: UIViewController {
     
+    init(_ expense: Expense) {
+        super.init(nibName: nil, bundle: nil)
+        self.expense = expense
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK:- VARIABLES
+    
+    fileprivate var expense: Expense!
+    
+    //
     
     lazy var scrollView: UIScrollView = {
         let sv = UIScrollView()
@@ -25,15 +38,82 @@ class ExpenseDetailsVC: UIViewController {
     
     lazy var dateLbl = UILabel(text: "Mon, December 13, 2021", font: .AppleSDGothicNeo(.medium, size: 20), numberOfLines: 1)
     lazy var categoryLbl = UILabel(text: "Category: Food", numberOfLines: 1)
+    lazy var currencyLbl = UILabel(text: "Currency: BDT", numberOfLines: 1)
     lazy var costLbl = UILabel(text: "Kr. 1200", font: .AppleSDGothicNeo(.bold, size: 26), numberOfLines: 1)
     lazy var placeLbl = UILabel(text: "Spent at: Scandic Soli", numberOfLines: 1)
     lazy var separator = UIView(color: .label)
-    lazy var reciptIV = UIImageView(image: nil, backgroundColor: .gray, contentMode: .scaleAspectFill, cornerRadius: 6)
+    lazy var reciptIV: UIImageView = {
+        let iv = UIImageView(image: nil, backgroundColor: .systemBackground, contentMode: .scaleAspectFill, cornerRadius: 6)
+        iv.isUserInteractionEnabled = true
+        iv.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleImageTap)))
+        return iv
+    }()
+    lazy var fullscreenIV = UIImageView(image: nil, backgroundColor: .systemBackground, contentMode: .scaleAspectFit)
+    lazy var closeButton: UIButton = {
+        let button = UIButton(title: "Close", titleColor: .label, font: .AppleSDGothicNeo(.semiBold, size: 16))
+        button.addTarget(self, action: #selector(handleCloseTap), for: .touchUpInside)
+        return button
+    }()
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        updateUI()
+    }
+}
+
+extension ExpenseDetailsVC {
+    fileprivate func updateUI() {
+        dateLbl.text = DateFormatter.dateTimeFormatter.string(from: Date(milliseconds: expense.date))
+        placeLbl.text = "Spent at: \(expense.placeName)"
+        categoryLbl.text = "Category: \(expense.category)"
+        currencyLbl.text = "Currency: \(expense.currencyName)"
+        costLbl.text = "Total: \(expense.currencySymbol) \(expense.amount)"
+        reciptIV.image = retrieveImage(url: expense.receiptURL)
+    }
+    
+    @objc fileprivate func handleImageTap() {
+        
+        navigationController?.view.addSubview(fullscreenIV)
+        fullscreenIV.alpha = 0
+        fullscreenIV.fillSuperview()
+        fullscreenIV.image = reciptIV.image
+        
+        navigationController?.view.addSubview(closeButton)
+        closeButton.anchor(top: navigationController?.view.topAnchor,
+                           leading: nil,
+                           bottom: nil,
+                           trailing: navigationController?.view.trailingAnchor,
+                           padding: .init(top: 48, left: 0, bottom: 0, right: 26))
+        
+        UIView.animate(withDuration: 0.4, delay: 0.0, options: .curveEaseInOut, animations: { [weak self] in
+            guard let self = self else {return}
+            self.fullscreenIV.alpha = 1
+            self.closeButton.alpha = 1
+            }, completion: { _ in
+        })
+    }
+    
+    private func retrieveImage(url: URL) -> UIImage? {
+        if let fileData = FileManager.default.contents(atPath: url.path),
+            let image = UIImage(data: fileData) {
+            return image
+        }
+        return nil
+    }
+    
+    @objc fileprivate func handleCloseTap() {
+        
+        UIView.animate(withDuration: 0.4, delay: 0.0, options: .curveEaseInOut, animations: { [weak self] in
+            guard let self = self else {return}
+            self.closeButton.alpha = 0
+            self.fullscreenIV.alpha = 0
+            }, completion: { _ in
+                self.closeButton.removeFromSuperview()
+                self.fullscreenIV.removeFromSuperview()
+        })
     }
 }
 
@@ -57,24 +137,16 @@ extension ExpenseDetailsVC {
         
     
         let vStack = VStackView(arrangedSubviews: [
-            dateLbl, placeLbl, categoryLbl
-        ], spacing: 6)
+            dateLbl, placeLbl, categoryLbl, currencyLbl, costLbl
+        ], spacing: 4)
         
         container.addSubview(vStack)
         vStack.anchor(top: container.topAnchor,
                       leading: container.leadingAnchor,
                       bottom: nil,
-                      trailing: nil,
+                      trailing: container.trailingAnchor,
                       padding: .init(top: 24, left: 16, bottom: 0, right: 16))
         
-        container.addSubview(costLbl)
-        costLbl.anchor(top: nil,
-                       leading: vStack.trailingAnchor,
-                       bottom: nil,
-                       trailing: container.trailingAnchor,
-                       padding: .init(top: 0, left: 12, bottom: 0, right: 0),
-                       size: .init(width: 120, height: 0))
-        costLbl.centerYAnchor.constraint(equalTo: vStack.centerYAnchor).isActive = true
         
         container.addSubview(separator)
         separator.anchor(top: vStack.bottomAnchor,
@@ -90,7 +162,7 @@ extension ExpenseDetailsVC {
                         bottom: container.bottomAnchor,
                         trailing: separator.trailingAnchor,
                         padding: .init(top: 16, left: 0, bottom: 0, right: 0),
-                        size: .init(width: 0, height: 400))
+                        size: .init(width: 0, height: 500))
         
     }
 }

@@ -10,8 +10,8 @@ import UIKit
 
 extension UIViewController {
 
-    func navigateToExpenseDetailsScreen() {
-        let controller = ExpenseDetailsVC()
+    func navigateToExpenseDetailsScreen(_ expense: Expense) {
+        let controller = ExpenseDetailsVC(expense)
         navigationController?.pushViewController(controller, animated: true)
     }
     

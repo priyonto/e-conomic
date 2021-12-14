@@ -171,7 +171,7 @@ extension ExpensesVC: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        navigateToExpenseDetailsScreen()
+        navigateToExpenseDetailsScreen(expenses[indexPath.item])
     }
 }
 
