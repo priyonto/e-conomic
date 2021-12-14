@@ -13,10 +13,11 @@ class ExpenseViewModel: NSObject {
     var currenciesSubscriber: ((_ result: [Currency]) ->())?
     var categoriesSubscriber: ((_ result: [Category]) ->())?
     
-    var fieldValidationResult: ((FieldValidationResponse)->())?
+    var fieldValidationResult: ((_ result: FieldValidationResponse)->())?
     
     var imageStoreSubscriber: ((_ result: Bool, _ url: URL?) -> ())?
-    var expenseStoreSubscriber: ((Bool) -> (Void))!
+    var expenseStoreSubscriber: ((_ result: Bool) -> (Void))!
+    var expenseListSubscriber: ((_ result: [Expense]) -> ())?
     
     
     override init() {
@@ -83,6 +84,14 @@ extension ExpenseViewModel {
                 imageStoreSubscriber?(false, nil)
             }
         }
+    }
+}
+
+extension ExpenseViewModel {
+    func getExpenses() {
+        let objects: [Expense.StorageClass] = RealmManager.shared.get()
+        let expenses = objects.map({ Expense.convertFromStorage($0)})
+        expenseListSubscriber?(expenses)
     }
 }
 

@@ -51,6 +51,7 @@
 		345B95B42768D9BE008C5B75 /* FieldValidationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95B32768D9BE008C5B75 /* FieldValidationResponse.swift */; };
 		345B95B72768DA56008C5B75 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95B62768DA56008C5B75 /* String+Ext.swift */; };
 		345B95BA276911FE008C5B75 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95B9276911FE008C5B75 /* Date+Ext.swift */; };
+		345B95BC27693409008C5B75 /* DateFormatter+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95BB27693409008C5B75 /* DateFormatter+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +118,7 @@
 		345B95B32768D9BE008C5B75 /* FieldValidationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldValidationResponse.swift; sourceTree = "<group>"; };
 		345B95B62768DA56008C5B75 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		345B95B9276911FE008C5B75 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
+		345B95BB27693409008C5B75 /* DateFormatter+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -482,6 +484,7 @@
 			isa = PBXGroup;
 			children = (
 				345B95B9276911FE008C5B75 /* Date+Ext.swift */,
+				345B95BB27693409008C5B75 /* DateFormatter+Ext.swift */,
 			);
 			path = Date;
 			sourceTree = "<group>";
@@ -659,6 +662,7 @@
 				341DD6BD27674A0E00507F1F /* ExpensesVC.swift in Sources */,
 				341DD7032767559B00507F1F /* UIFont+Ext.swift in Sources */,
 				341DD6F8276754CB00507F1F /* HStackView.swift in Sources */,
+				345B95BC27693409008C5B75 /* DateFormatter+Ext.swift in Sources */,
 				341DD6B927674A0E00507F1F /* AppDelegate.swift in Sources */,
 				341DD70C2767564000507F1F /* UITextField+Init.swift in Sources */,
 				345B95AA2768B504008C5B75 /* Category.swift in Sources */,

@@ -34,6 +34,14 @@ class RealmManager {
         return objects
     }
     
+    public func get<T: Object>() -> [T] {
+
+        let result = realm.objects(T.self)
+        guard result.isEmpty == false else { return [] }
+        let data: [T] = (0..<result.count).map { index in return result[index] }
+        return data
+    }
+    
     func add(_ object : Object, completion: @escaping (Bool) -> Void) {
         do {
             try realm.write {

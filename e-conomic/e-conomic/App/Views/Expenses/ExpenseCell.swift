@@ -14,12 +14,11 @@ class ExpenseCell: BaseCollectionViewCell {
     // MARK:- VARIABLES
     lazy var dateLbl = UILabel(text: "Mon, December 13, 2021", font: .AppleSDGothicNeo(.medium, size: 20), numberOfLines: 1)
     lazy var categoryLbl = UILabel(text: "Category: Food", numberOfLines: 1)
-    lazy var costLbl = UILabel(text: "Kr. 1200", font: .AppleSDGothicNeo(.bold, size: 26), numberOfLines: 1)
+    lazy var currencyLbl = UILabel(text: "Currency: BDT", numberOfLines: 1)
+    lazy var costLbl = UILabel(text: "Kr. 1200", font: .AppleSDGothicNeo(.bold, size: 20), numberOfLines: 1)
     lazy var placeLbl = UILabel(text: "Spent at: Scandic Soli", numberOfLines: 1)
     lazy var separator = UIView(color: .label)
-//    lazy var reciptIV = UIImageView(image: nil, backgroundColor: .gray, contentMode: .scaleAspectFill, cornerRadius: 6)
-//
-    
+
 }
 
 extension ExpenseCell {
@@ -30,24 +29,15 @@ extension ExpenseCell {
         container.fillSuperview()
         
         let vStack = VStackView(arrangedSubviews: [
-            dateLbl, placeLbl, categoryLbl
+            dateLbl, placeLbl, categoryLbl, currencyLbl, costLbl
         ], spacing: 6)
         
         container.addSubview(vStack)
         vStack.anchor(top: container.topAnchor,
                       leading: container.leadingAnchor,
                       bottom: nil,
-                      trailing: nil,
+                      trailing: container.trailingAnchor,
                       padding: .init(top: 4, left: 16, bottom: 0, right: 16))
-        
-        container.addSubview(costLbl)
-        costLbl.anchor(top: nil,
-                       leading: vStack.trailingAnchor,
-                       bottom: nil,
-                       trailing: container.trailingAnchor,
-                       padding: .init(top: 0, left: 12, bottom: 0, right: 0),
-                       size: .init(width: 120, height: 0))
-        costLbl.centerYAnchor.constraint(equalTo: vStack.centerYAnchor).isActive = true
         
         container.addSubview(separator)
         separator.anchor(top: vStack.bottomAnchor,
@@ -56,5 +46,16 @@ extension ExpenseCell {
                          trailing: container.trailingAnchor,
                          padding: .init(top: 16, left: 16, bottom: 4, right: 16),
                          size: .init(width: 0, height: 0.2))
+    }
+}
+
+
+extension ExpenseCell {
+    func configure(from expense: Expense) {
+        dateLbl.text = DateFormatter.dateTimeFormatter.string(from: Date(milliseconds: expense.date))
+        placeLbl.text = "Spent at: \(expense.placeName)"
+        categoryLbl.text = "Category: \(expense.category)"
+        currencyLbl.text = "Currency: \(expense.currencyName)"
+        costLbl.text = "Total: \(expense.currencySymbol) \(expense.amount)"
     }
 }

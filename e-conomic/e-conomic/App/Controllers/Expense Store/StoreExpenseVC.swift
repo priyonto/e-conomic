@@ -266,9 +266,7 @@ extension StoreExpenseVC {
     
     fileprivate func handleSelectedDate(with date: Date) {
         selectedDate = date.millisecondsSince1970
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd MMM yyyy, HH:mm"
-        dateTextField.text = dateFormatter.string(from: date)
+        dateTextField.text = DateFormatter.dateTimeFormatter.string(from: date)
     }
 }
 

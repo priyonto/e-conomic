@@ -12,6 +12,8 @@ class ExpensesVC: UIViewController {
     
     // MARK:- VARIABLES
     
+    fileprivate var expenses: [Expense] = []
+    
     /// collectionview to hold the list of expense history
     lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
@@ -36,6 +38,7 @@ class ExpensesVC: UIViewController {
     
     // MARK:- CONSTANTS
     
+    fileprivate let viewModel = ExpenseViewModel()
     fileprivate let cellIdentifier: String = "cellIdentifier"
     
     
@@ -45,11 +48,29 @@ class ExpensesVC: UIViewController {
         super.viewDidLoad()
         setupUI()
         registerCell()
-        
-        let expenses = realm.objects(RealmExpense.self)
-        print(expenses)
+        bindViewModel()
     }
 
+}
+
+extension ExpensesVC {
+    fileprivate func bindViewModel() {
+        
+        viewModel.expenseListSubscriber = { [weak self] (result) in
+            guard let self = self else {return}
+            self.expenses = result
+            self.reload()
+        }
+        
+        viewModel.getExpenses()
+    }
+    
+    fileprivate func reload() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else {return}
+            self.collectionView.reloadData()
+        }
+    }
 }
 
 
@@ -137,18 +158,15 @@ extension ExpensesVC: UINavigationControllerDelegate, UIImagePickerControllerDel
 
 // MARK:- UICOLLECTIONVIEW DELEGATE & DATA SOURCE
 extension ExpensesVC: UICollectionViewDelegate, UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return expenses.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? ExpenseCell else {
             fatalError()
         }
+        cell.configure(from: expenses[indexPath.item])
         return cell
     }
     
