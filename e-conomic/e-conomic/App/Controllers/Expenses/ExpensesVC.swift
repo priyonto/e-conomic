@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import AVKit
 
 class ExpensesVC: UIViewController {
     
@@ -102,7 +103,7 @@ extension ExpensesVC {
     @objc fileprivate func handleCaptureButtonTap() {
         // TODO:- HANDLE CAMERA & GALLERY PERMISSION PROPERLY
         // IMPORTANT!!!
-        selectImageSource()
+        checkCameraPermission()
     }
     
     fileprivate func selectImageSource() {
@@ -132,6 +133,45 @@ extension ExpensesVC {
         picker.allowsEditing = true
         picker.delegate = self
         present(picker, animated: true)
+    }
+    
+    func checkCameraPermission() {
+        let authStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
+        switch authStatus {
+        case .authorized, .notDetermined: selectImageSource()
+        case .denied: askForCameraAccess()
+        default: selectImageSource()
+        }
+    }
+
+    
+    fileprivate func askForCameraAccess() {
+        let alert = UIAlertController(title: "Allow access to your photos",
+                                      message: "This lets you capture image from camera or choose image from your photo library. Go to your settings and tap \"Photos\".",
+                                      preferredStyle: .alert)
+        
+        let notNowAction = UIAlertAction(title: "Not Now",
+                                         style: .cancel,
+                                         handler: nil)
+        alert.addAction(notNowAction)
+        
+        let openSettingsAction = UIAlertAction(title: "Open Settings",
+                                               style: .default) { [unowned self] (_) in
+            // Open app privacy settings
+            gotoAppPrivacySettings()
+        }
+        alert.addAction(openSettingsAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func gotoAppPrivacySettings() {
+        guard let url = URL(string: UIApplication.openSettingsURLString),
+            UIApplication.shared.canOpenURL(url) else {
+                assertionFailure("Not able to open App privacy settings")
+                return
+        }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 }
 
