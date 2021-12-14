@@ -36,6 +36,11 @@
 		345B958E2767C51F008C5B75 /* GenericSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B958D2767C51F008C5B75 /* GenericSelectionVC.swift */; };
 		345B95912767C622008C5B75 /* GenericSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95902767C622008C5B75 /* GenericSelectionCell.swift */; };
 		345B9594276882EF008C5B75 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 345B9593276882EF008C5B75 /* RealmSwift */; };
+		345B9597276886D8008C5B75 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B9596276886D8008C5B75 /* RealmManager.swift */; };
+		345B95992768872B008C5B75 /* RealmExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95982768872B008C5B75 /* RealmExpense.swift */; };
+		345B959B2768A80E008C5B75 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B959A2768A80E008C5B75 /* Expense.swift */; };
+		345B959D2768A8A1008C5B75 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B959C2768A8A1008C5B75 /* Protocol.swift */; };
+		345B95A02768AA6E008C5B75 /* FileManager+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B959F2768AA6E008C5B75 /* FileManager+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +92,11 @@
 		345B95882767AE49008C5B75 /* StoreExpenseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreExpenseVC.swift; sourceTree = "<group>"; };
 		345B958D2767C51F008C5B75 /* GenericSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericSelectionVC.swift; sourceTree = "<group>"; };
 		345B95902767C622008C5B75 /* GenericSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericSelectionCell.swift; sourceTree = "<group>"; };
+		345B9596276886D8008C5B75 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		345B95982768872B008C5B75 /* RealmExpense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmExpense.swift; sourceTree = "<group>"; };
+		345B959A2768A80E008C5B75 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
+		345B959C2768A8A1008C5B75 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
+		345B959F2768AA6E008C5B75 /* FileManager+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +210,7 @@
 		341DD6EB276753C900507F1F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				345B959A2768A80E008C5B75 /* Expense.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -231,6 +242,7 @@
 		341DD6EF276753FB00507F1F /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				345B9595276886C8008C5B75 /* Realm */,
 				345B957E27679040008C5B75 /* Managers */,
 				341DD6F02767540300507F1F /* Extensions */,
 			);
@@ -240,6 +252,7 @@
 		341DD6F02767540300507F1F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				345B959E2768AA5E008C5B75 /* FileManager */,
 				345B95842767A15A008C5B75 /* UIViewController */,
 				341DD70D2767567B00507F1F /* Notification */,
 				341DD70A2767562C00507F1F /* UITextField */,
@@ -393,6 +406,24 @@
 			path = "Expense Store";
 			sourceTree = "<group>";
 		};
+		345B9595276886C8008C5B75 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				345B9596276886D8008C5B75 /* RealmManager.swift */,
+				345B95982768872B008C5B75 /* RealmExpense.swift */,
+				345B959C2768A8A1008C5B75 /* Protocol.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		345B959E2768AA5E008C5B75 /* FileManager */ = {
+			isa = PBXGroup;
+			children = (
+				345B959F2768AA6E008C5B75 /* FileManager+Ext.swift */,
+			);
+			path = FileManager;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -533,7 +564,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				345B959B2768A80E008C5B75 /* Expense.swift in Sources */,
 				341DD6FA276754DF00507F1F /* VStackView.swift in Sources */,
+				345B95992768872B008C5B75 /* RealmExpense.swift in Sources */,
 				341DD71427676AEA00507F1F /* BaseCollectionViewCell.swift in Sources */,
 				345B95912767C622008C5B75 /* GenericSelectionCell.swift in Sources */,
 				341DD7092767560200507F1F /* UIButoon+Init.swift in Sources */,
@@ -545,7 +578,10 @@
 				345B95862767A192008C5B75 /* UIViewController+Ext.swift in Sources */,
 				341DD7162767796400507F1F /* ExpenseCell.swift in Sources */,
 				345B958E2767C51F008C5B75 /* GenericSelectionVC.swift in Sources */,
+				345B959D2768A8A1008C5B75 /* Protocol.swift in Sources */,
+				345B95A02768AA6E008C5B75 /* FileManager+Ext.swift in Sources */,
 				345B958027679057008C5B75 /* AssetManager.swift in Sources */,
+				345B9597276886D8008C5B75 /* RealmManager.swift in Sources */,
 				345B95892767AE4A008C5B75 /* StoreExpenseVC.swift in Sources */,
 				341DD6FD2767553E00507F1F /* UILabel+Init.swift in Sources */,
 				341DD7002767557600507F1F /* UIImageView+Init.swift in Sources */,
@@ -934,7 +970,7 @@
 			repositoryURL = "https://github.com/realm/realm-cocoa.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
+				minimumVersion = 10.19.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
