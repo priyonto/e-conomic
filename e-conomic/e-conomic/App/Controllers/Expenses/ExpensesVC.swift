@@ -40,7 +40,7 @@ class ExpensesVC: UIViewController {
     
     fileprivate let viewModel = ExpenseViewModel()
     fileprivate let cellIdentifier: String = "cellIdentifier"
-    
+    fileprivate let picker = UIImagePickerController()
     
 
 
@@ -124,11 +124,10 @@ extension ExpensesVC {
         //uncomment for iPad Support
         //alert.popoverPresentationController?.sourceView = self.view
         
-        self.present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
     
     fileprivate func presentCameraController(_ source: UIImagePickerController.SourceType) {
-        let picker = UIImagePickerController()
         picker.sourceType = source
         picker.allowsEditing = true
         picker.delegate = self
@@ -149,7 +148,7 @@ extension ExpensesVC: UINavigationControllerDelegate, UIImagePickerControllerDel
             return
         }
 
-        dismiss(animated: true)
+        picker.dismiss(animated: true)
         presentStoreExpenseScreen(image)
     }
 }
