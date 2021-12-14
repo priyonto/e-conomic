@@ -114,34 +114,56 @@ extension StoreExpenseVC {
             guard let self = self else {return}
             switch result {
             case .success:
-                self.makeRequest()
-            case .failure:
+                self.viewModel.store(imageData: self.captureReceipt.pngData()!)
+            case .failure(let field):
+                print(field)
                 // Show error
                 return
             }
         }
         
-        validateTextFields()
+        
+        viewModel.imageStoreSubscriber = { [weak self] (success, url) in
+            guard let self = self else {return}
+            if success {
+                self.makeRequest(with: url!)
+            } else {
+                // image not stored and we can not proceed
+                // show error here
+            }
+        }
+        
+        viewModel.expenseStoreSubscriber = { [weak self] (success) in
+            guard let self = self else {return}
+            if success {
+                // show success alert
+                // and then dismiss on okay
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                // show some error
+            }
+        }
+        
     }
     
     fileprivate func validateTextFields() {
         viewModel.validateTextFields(place_name: nameTextField.text,
-                                     date: dateTextField.text.int64Value,
+                                     date: selectedDate,
                                      currency: currencyTextField.text,
                                      amount: amountTextField.text.doubleValue,
                                      category: categoryTextField.text)
     }
     
     
-    fileprivate func makeRequest() {
+    fileprivate func makeRequest(with url: URL) {
         let expense = Expense(id: "",
-                              date: dateTextField.text.int64Value!,
+                              date: selectedDate,
                               placeName: nameTextField.text!,
                               currencyName: selectedCurrency.name,
                               currencySymbol: selectedCurrency.symbol,
                               amount: amountTextField.text.doubleValue!,
                               category: categoryTextField.text!,
-                              receiptURL: URL(string: "/somepath/some.png")!)
+                              receiptURL: url)
         viewModel.store(with: expense)
     }
 
@@ -227,7 +249,6 @@ extension StoreExpenseVC {
 
     @objc fileprivate func datePickerCancel() {
         dateTextField.resignFirstResponder()
-        //delegate?.didTapCancel(sender: self)
     }
     
     @objc fileprivate func datePickerDone() {

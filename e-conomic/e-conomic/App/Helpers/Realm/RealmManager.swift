@@ -34,11 +34,15 @@ class RealmManager {
         return objects
     }
     
-    func add(_ object : Object) {
-        queue.sync {
-            try! realm.write {
+    func add(_ object : Object, completion: @escaping (Bool) -> Void) {
+        do {
+            try realm.write {
                 realm.add(object)
+                completion(true)
             }
+        }
+         catch {
+            completion(false)
         }
     }
     

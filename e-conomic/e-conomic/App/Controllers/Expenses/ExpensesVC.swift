@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ExpensesVC: UIViewController {
     
@@ -44,6 +45,9 @@ class ExpensesVC: UIViewController {
         super.viewDidLoad()
         setupUI()
         registerCell()
+        
+        let expenses = realm.objects(RealmExpense.self)
+        print(expenses)
     }
 
 }
