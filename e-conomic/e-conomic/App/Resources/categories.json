@@ -1,11 +1,3 @@
-//
-//  categories.json
-//  e-conomic
-//
-//  Created by iPriyo on 14/12/21.
-//  Copyright © 2021 Priyoneer. All rights reserved.
-//
-
 [
     {
         "id": 1,
@@ -38,5 +30,5 @@
     {
         "id": 8,
         "name":"Other"
-    },
+    }
 ]

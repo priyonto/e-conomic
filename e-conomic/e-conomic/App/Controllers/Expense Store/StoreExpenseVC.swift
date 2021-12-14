@@ -151,6 +151,21 @@ extension StoreExpenseVC {
 }
 
 
+extension StoreExpenseVC: GenericSelectionDelegate {
+    func didSelectItem(item: Any) {
+        if let item = item as? Category {
+            categoryTextField.text = item.name
+        } else if let item = item as? Currency {
+            currencyTextField.text = "\(item.name) - \(item.symbol)"
+        } else {
+            // something out of the context
+        }
+    }
+    
+    
+}
+
+
 extension StoreExpenseVC {
     @objc fileprivate func handleRecordCreateTap() {
         dismiss(animated: true, completion: nil)
@@ -158,11 +173,11 @@ extension StoreExpenseVC {
     
     @objc fileprivate func handleCurrencyChoiceTap() {
         //
-        navigateToGenericSelectionScreen(.currency)
+        navigateToGenericSelectionScreen(.currency, delegate: self)
     }
     
     @objc fileprivate func handleCategoryChoiceTap() {
         //
-        navigateToGenericSelectionScreen(.category)
+        navigateToGenericSelectionScreen(.category, delegate: self)
     }
 }

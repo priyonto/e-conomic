@@ -23,8 +23,8 @@ extension UIViewController {
     }
     
     
-    func navigateToGenericSelectionScreen(_ selectionState: SelectionState) {
-        let controller = GenericSelectionVC(selectionState: selectionState)
+    func navigateToGenericSelectionScreen(_ selectionState: SelectionState, delegate: GenericSelectionDelegate) {
+        let controller = GenericSelectionVC(selectionState: selectionState, delegate: delegate)
         navigationController?.pushViewController(controller, animated: true)
     }
 }

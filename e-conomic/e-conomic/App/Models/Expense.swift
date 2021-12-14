@@ -13,7 +13,8 @@ struct Expense: Decodable {
     let id: String
     let date: Int64
     let placeName: String
-    let currency: String
+    let currencyName: String
+    let currencySymbol: String
     let amount: Double
     let category: String
     let receiptURL: URL
@@ -28,7 +29,8 @@ extension Expense: Storable {
         let storedExpense = StorageClass()
         storedExpense.date = self.date
         storedExpense.place_name = self.placeName
-        storedExpense.currency = self.currency
+        storedExpense.currency_name = self.currencyName
+        storedExpense.currency_symbol = self.currencySymbol
         storedExpense.amount = self.amount
         storedExpense.category = self.category
         storedExpense.receipt_image_name = self.receiptURL.lastPathComponent
@@ -42,7 +44,8 @@ extension Expense: Storable {
         let expense = Expense(id: storage._id.stringValue,
                               date: storage.date,
                               placeName: storage.place_name,
-                              currency: storage.currency,
+                              currencyName: storage.currency_name,
+                              currencySymbol: storage.currency_symbol,
                               amount: storage.amount,
                               category: storage.category,
                               receiptURL: imageURL!)

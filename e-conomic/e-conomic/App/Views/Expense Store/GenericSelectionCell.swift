@@ -41,3 +41,13 @@ extension GenericSelectionCell {
     }
 }
 
+
+extension GenericSelectionCell {
+    func configure(with currency: Currency)  {
+        dataLbl.text = "\(currency.name) - \(currency.cc)(\(currency.symbol))"
+    }
+    
+    func configure(with category: Category)  {
+        dataLbl.text = "\(category.name)"
+    }
+}

@@ -13,7 +13,8 @@ class RealmExpense: Object {
     @Persisted(primaryKey: true) var _id: ObjectId
     @Persisted var date: Int64 = 0
     @Persisted var place_name: String = ""
-    @Persisted var currency: String = ""
+    @Persisted var currency_name: String = ""
+    @Persisted var currency_symbol: String = ""
     @Persisted var amount: Double = 0
     @Persisted var category: String = ""
     @Persisted var receipt_image_name: String = ""

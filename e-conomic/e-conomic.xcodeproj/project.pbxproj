@@ -45,6 +45,9 @@
 		345B95A62768AFA0008C5B75 /* categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 345B95A52768AFA0008C5B75 /* categories.json */; };
 		345B95A82768B4D6008C5B75 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95A72768B4D6008C5B75 /* Currency.swift */; };
 		345B95AA2768B504008C5B75 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95A92768B504008C5B75 /* Category.swift */; };
+		345B95AC2768B67D008C5B75 /* ExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95AB2768B67D008C5B75 /* ExpenseViewModel.swift */; };
+		345B95AF2768CA00008C5B75 /* Decodable+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95AE2768CA00008C5B75 /* Decodable+Ext.swift */; };
+		345B95B12768D0C3008C5B75 /* GenericSelectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95B02768D0C2008C5B75 /* GenericSelectionProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +108,9 @@
 		345B95A52768AFA0008C5B75 /* categories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = categories.json; sourceTree = "<group>"; };
 		345B95A72768B4D6008C5B75 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		345B95A92768B504008C5B75 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		345B95AB2768B67D008C5B75 /* ExpenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseViewModel.swift; sourceTree = "<group>"; };
+		345B95AE2768CA00008C5B75 /* Decodable+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decodable+Ext.swift"; sourceTree = "<group>"; };
+		345B95B02768D0C2008C5B75 /* GenericSelectionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericSelectionProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +234,7 @@
 		341DD6EC276753CF00507F1F /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				345B95AB2768B67D008C5B75 /* ExpenseViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -264,6 +271,7 @@
 		341DD6F02767540300507F1F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				345B95AD2768C9EF008C5B75 /* Decodable */,
 				345B959E2768AA5E008C5B75 /* FileManager */,
 				345B95842767A15A008C5B75 /* UIViewController */,
 				341DD70D2767567B00507F1F /* Notification */,
@@ -405,6 +413,7 @@
 			isa = PBXGroup;
 			children = (
 				345B95882767AE49008C5B75 /* StoreExpenseVC.swift */,
+				345B95B02768D0C2008C5B75 /* GenericSelectionProtocol.swift */,
 				345B958D2767C51F008C5B75 /* GenericSelectionVC.swift */,
 			);
 			path = "Expense Store";
@@ -434,6 +443,14 @@
 				345B959F2768AA6E008C5B75 /* FileManager+Ext.swift */,
 			);
 			path = FileManager;
+			sourceTree = "<group>";
+		};
+		345B95AD2768C9EF008C5B75 /* Decodable */ = {
+			isa = PBXGroup;
+			children = (
+				345B95AE2768CA00008C5B75 /* Decodable+Ext.swift */,
+			);
+			path = Decodable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -589,13 +606,16 @@
 				345B958327679EBB008C5B75 /* ExpenseDetailVC.swift in Sources */,
 				345B95A82768B4D6008C5B75 /* Currency.swift in Sources */,
 				341DD6F32767545800507F1F /* UIView+Init.swift in Sources */,
+				345B95AF2768CA00008C5B75 /* Decodable+Ext.swift in Sources */,
 				341DD706276755D600507F1F /* UIColor+Init.swift in Sources */,
 				345B95862767A192008C5B75 /* UIViewController+Ext.swift in Sources */,
 				341DD7162767796400507F1F /* ExpenseCell.swift in Sources */,
+				345B95AC2768B67D008C5B75 /* ExpenseViewModel.swift in Sources */,
 				345B958E2767C51F008C5B75 /* GenericSelectionVC.swift in Sources */,
 				345B959D2768A8A1008C5B75 /* Protocol.swift in Sources */,
 				345B95A02768AA6E008C5B75 /* FileManager+Ext.swift in Sources */,
 				345B958027679057008C5B75 /* AssetManager.swift in Sources */,
+				345B95B12768D0C3008C5B75 /* GenericSelectionProtocol.swift in Sources */,
 				345B9597276886D8008C5B75 /* RealmManager.swift in Sources */,
 				345B95892767AE4A008C5B75 /* StoreExpenseVC.swift in Sources */,
 				341DD6FD2767553E00507F1F /* UILabel+Init.swift in Sources */,

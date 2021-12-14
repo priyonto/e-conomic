@@ -6,9 +6,9 @@
 //  Copyright © 2021 Priyoneer. All rights reserved.
 //
 
-enum SelectionState {
-    case currency
-    case category
+enum SelectionState: String {
+    case currency = "currencies"
+    case category = "categories"
 }
 
 import UIKit
@@ -16,9 +16,10 @@ import UIKit
 class GenericSelectionVC: UIViewController {
     
     // DEPENDENCY INJECTION
-    init (selectionState: SelectionState) {
+    init (selectionState: SelectionState, delegate: GenericSelectionDelegate?) {
         super.init(nibName: nil, bundle: nil)
         self.selectionState = selectionState
+        self.delegate = delegate
     }
     
     required init?(coder: NSCoder) {
@@ -28,6 +29,7 @@ class GenericSelectionVC: UIViewController {
     // MARK:- VARIABLES
     
     fileprivate var selectionState: SelectionState = .currency
+    fileprivate weak var delegate: GenericSelectionDelegate?
     
     //
     
@@ -64,8 +66,11 @@ class GenericSelectionVC: UIViewController {
     
     // MARK:- CONSTANTS
     
+    fileprivate let viewModel = ExpenseViewModel()
     fileprivate let cellIdentifier: String = "cellIdentifier"
     
+    fileprivate var currencies: [Currency] = []
+    fileprivate var categories: [Category] = []
     
 
 
@@ -73,9 +78,34 @@ class GenericSelectionVC: UIViewController {
         super.viewDidLoad()
         setupUI()
         registerCell()
+        bindViewModel()
     }
 
 }
+
+extension GenericSelectionVC {
+    fileprivate func bindViewModel() {
+        viewModel.currenciesSubscriber = { [weak self] (result) in
+            guard let self = self else {return}
+            self.currencies = result
+            self.reload()
+        }
+        
+        viewModel.categoriesSubscriber = { [weak self] (result) in
+            guard let self = self else {return}
+            self.categories = result
+            self.reload()
+        }
+        
+        viewModel.getSelectionItems(selectionState)
+    }
+    
+    fileprivate func reload() {
+        collectionView.reloadData()
+    }
+ 
+}
+
 
 
 // MARK:- SETUP UI
@@ -108,12 +138,15 @@ extension GenericSelectionVC {
 
 // MARK:- UICOLLECTIONVIEW DELEGATE & DATA SOURCE
 extension GenericSelectionVC: UICollectionViewDelegate, UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        switch selectionState {
+        case .currency:
+            return currencies.count
+            
+        case .category:
+            return categories.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -122,16 +155,23 @@ extension GenericSelectionVC: UICollectionViewDelegate, UICollectionViewDataSour
         }
         switch selectionState {
         case .currency:
-            cell.dataLbl.text = "Danish krone - DKK(Kr.)"
+            cell.configure(with: currencies[indexPath.item])
             
         case .category:
-            cell.dataLbl.text = "Grocery"
+            cell.configure(with: categories[indexPath.item])
         }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // Go back to previous screen
+        switch selectionState {
+        case .currency:
+            delegate?.didSelectItem(item: currencies[indexPath.item])
+            
+        case .category:
+            delegate?.didSelectItem(item: categories[indexPath.item])
+        }
         _ = navigationController?.popViewController(animated: true)
     }
 }
