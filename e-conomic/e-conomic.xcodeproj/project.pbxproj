@@ -25,7 +25,6 @@
 		341DD706276755D600507F1F /* UIColor+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341DD705276755D600507F1F /* UIColor+Init.swift */; };
 		341DD7092767560200507F1F /* UIButoon+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341DD7082767560200507F1F /* UIButoon+Init.swift */; };
 		341DD70C2767564000507F1F /* UITextField+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341DD70B2767564000507F1F /* UITextField+Init.swift */; };
-		341DD70F2767569000507F1F /* Notification+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341DD70E2767569000507F1F /* Notification+Ext.swift */; };
 		341DD71427676AEA00507F1F /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341DD71327676AEA00507F1F /* BaseCollectionViewCell.swift */; };
 		341DD7162767796400507F1F /* ExpenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341DD7152767796400507F1F /* ExpenseCell.swift */; };
 		345B958027679057008C5B75 /* AssetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B957F27679057008C5B75 /* AssetManager.swift */; };
@@ -94,7 +93,6 @@
 		341DD705276755D600507F1F /* UIColor+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Init.swift"; sourceTree = "<group>"; };
 		341DD7082767560200507F1F /* UIButoon+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButoon+Init.swift"; sourceTree = "<group>"; };
 		341DD70B2767564000507F1F /* UITextField+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Init.swift"; sourceTree = "<group>"; };
-		341DD70E2767569000507F1F /* Notification+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Ext.swift"; sourceTree = "<group>"; };
 		341DD71327676AEA00507F1F /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		341DD7152767796400507F1F /* ExpenseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCell.swift; sourceTree = "<group>"; };
 		345B957F27679057008C5B75 /* AssetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetManager.swift; sourceTree = "<group>"; };
@@ -285,7 +283,6 @@
 				345B95AD2768C9EF008C5B75 /* Decodable */,
 				345B959E2768AA5E008C5B75 /* FileManager */,
 				345B95842767A15A008C5B75 /* UIViewController */,
-				341DD70D2767567B00507F1F /* Notification */,
 				341DD70A2767562C00507F1F /* UITextField */,
 				341DD707276755F200507F1F /* UIButton */,
 				341DD704276755C300507F1F /* UIColor */,
@@ -362,14 +359,6 @@
 				341DD70B2767564000507F1F /* UITextField+Init.swift */,
 			);
 			path = UITextField;
-			sourceTree = "<group>";
-		};
-		341DD70D2767567B00507F1F /* Notification */ = {
-			isa = PBXGroup;
-			children = (
-				341DD70E2767569000507F1F /* Notification+Ext.swift */,
-			);
-			path = Notification;
 			sourceTree = "<group>";
 		};
 		341DD7102767696800507F1F /* Expenses */ = {
@@ -637,7 +626,6 @@
 				341DD71427676AEA00507F1F /* BaseCollectionViewCell.swift in Sources */,
 				345B95912767C622008C5B75 /* GenericSelectionCell.swift in Sources */,
 				341DD7092767560200507F1F /* UIButoon+Init.swift in Sources */,
-				341DD70F2767569000507F1F /* Notification+Ext.swift in Sources */,
 				341DD6F52767548A00507F1F /* UIView+Layout.swift in Sources */,
 				345B958327679EBB008C5B75 /* ExpenseDetailVC.swift in Sources */,
 				345B95A82768B4D6008C5B75 /* Currency.swift in Sources */,
