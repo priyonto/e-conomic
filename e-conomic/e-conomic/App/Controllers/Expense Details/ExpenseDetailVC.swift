@@ -24,6 +24,7 @@ class ExpenseDetailsVC: UIViewController {
     // MARK: - Variables
     
     fileprivate var expense: Expense!
+    lazy var viewModel = ExpenseDetailsViewModel(expense)
     
     // MARK: - UI Components
     
@@ -70,14 +71,26 @@ class ExpenseDetailsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        bindViewModel()
         updateUI()
     }
 }
 
-// MARK: - Render UI with ViewModel
+// MARK: - ViewModel
 extension ExpenseDetailsVC {
+    
+    fileprivate func bindViewModel() {
+        viewModel.expenseDeleteSubscriber = { [weak self] (success) in
+            guard let self = self else {return}
+            if success {
+                self.alert(title: Constants.success, message: Constants.expenseRecordDeleted, dismiss: true)
+            } else {
+                self.alert(title: Constants.errorOccured, message: Constants.expenseDeleteError)
+            }
+        }
+    }
+    
     fileprivate func updateUI() {
-        let viewModel = ExpenseDetailsViewModel(expense)
         dateLbl.text = viewModel.date
         placeLbl.text = viewModel.place
         categoryLbl.text = viewModel.category
@@ -93,7 +106,36 @@ extension ExpenseDetailsVC {
     
     /// Handle delete record button
     @objc fileprivate func handleDeleteTap() {
+        deletionAlter(title: Constants.confirmationTitle, message: Constants.deletionConfirmationMsg)
+    }
+    
+    /// Show confirmation alert before deleting any record
+    func deletionAlter(title: String?, message: String?) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
+        let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { [weak self] _ in
+            guard let self = self else {return}
+            self.viewModel.delete(with: self.expense)
+        })
+        
+        let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
+        
+        alertController.addAction(yesAction)
+        alertController.addAction(noAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    /// Show successfully deleted alert
+    func alert(title: String?, message: String?, dismiss: Bool = false) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let OKAction = UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
+            guard let self = self else {return}
+            if dismiss {
+                _ = self.navigationController?.popViewController(animated: true)
+            }
+        })
+        alertController.addAction(OKAction)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     /// Handle the pewview image tap.

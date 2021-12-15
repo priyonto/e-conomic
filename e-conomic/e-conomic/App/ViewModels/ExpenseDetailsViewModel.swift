@@ -42,6 +42,6 @@ extension ExpenseDetailsViewModel {
     
     /// Delete expense model from realm data base and returns the completion handler
     func delete(with expense: Expense) {
-        RealmManager.shared.delete(expense.convertToStorage(), completion: expenseDeleteSubscriber)
+        RealmManager.shared.delete(expense, completion: expenseDeleteSubscriber)
     }
 }

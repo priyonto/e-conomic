@@ -27,10 +27,16 @@ struct Constants {
     static let success = "Success"
     static let errorOccured = "We are sorry!"
     static let requiredFieldTitle = "Required field"
+    static let confirmationTitle = "Please confirm"
     
     static let imageAccessTitle = "Allow access to your photos"
     static let imageAccessMessage = "This lets you capture image from camera or choose image from your photo library. Go to your settings and tap \"Photos\"."
     static let selectImageSource = "Please Select Image Source"
+    
+    static let expenseRecordDeleted = "Expense record deleted successfully"
+    static let expenseDeleteError = "Could not delete record. Please try again."
+    
+    static let deletionConfirmationMsg = "Do you want to delete this?"
     
     
     // MARK: - Image

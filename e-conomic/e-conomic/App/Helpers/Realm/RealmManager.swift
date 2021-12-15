@@ -54,15 +54,19 @@ class RealmManager {
     // MARK: - Delete realm object
     /// This method is used to delete single realm object from the realm database
     /// with a completion handler to notify when the operation completes with a boolean result
-    func delete(_ object : Object, completion: @escaping (Bool) -> Void) {
+    func delete(_ object : Expense, completion: @escaping (Bool) -> Void) {
         let realm = try! Realm()
-        do {
-            try realm.write {
-                realm.delete(object)
-                completion(true)
+        if let itemToDelete = realm.objects(RealmExpense.self).filter({ $0._id.stringValue == object.id }).first {
+            do {
+                try realm.write {
+                    realm.delete(itemToDelete)
+                    completion(true)
+                }
             }
-        }
-         catch {
+             catch {
+                completion(false)
+            }
+        } else {
             completion(false)
         }
     }
