@@ -37,6 +37,8 @@ class ExpensesVC: UIViewController {
         return button
     }()
     
+    lazy var noResultsLbl = UILabel(text: "No expense record found.", textColor: .secondaryLabel, font: .AppleSDGothicNeo(.medium, size: 22), alignment: .center)
+    
     // MARK:- CONSTANTS
     
     fileprivate let viewModel = ExpenseViewModel()
@@ -71,10 +73,19 @@ extension ExpensesVC {
     }
     
     fileprivate func reload() {
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else {return}
-            self.collectionView.reloadData()
+        
+        if expenses.count == 0 {
+            self.noResultsLbl.isHidden = false
+            self.collectionView.isHidden = true
+        } else {
+            self.noResultsLbl.isHidden = true
+            self.collectionView.isHidden = false
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else {return}
+                self.collectionView.reloadData()
+            }
         }
+        
     }
 }
 
@@ -85,6 +96,8 @@ extension ExpensesVC {
         view.backgroundColor = .systemBackground
         self.title = "Expenses"
         
+        view.addSubview(noResultsLbl)
+        noResultsLbl.centerInSuperview()
         
         view.addSubview(collectionView)
         collectionView.fillSuperview()
