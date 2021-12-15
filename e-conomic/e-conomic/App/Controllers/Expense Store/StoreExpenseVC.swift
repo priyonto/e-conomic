@@ -111,10 +111,13 @@ class StoreExpenseVC: UIViewController {
     }
 }
 
+// MARK: - Methods to bind viewmodel to controller
+
 extension StoreExpenseVC {
     
     fileprivate func bindViewModel() {
         
+        /// Subscribes to validation results of viewmodel
         viewModel.fieldValidationResult = { [weak self] (result) in
             guard let self = self else {return}
             switch result {
@@ -125,7 +128,8 @@ extension StoreExpenseVC {
             }
         }
         
-        
+        /// Subscribe to image store status
+        /// Once image is stored expense model is passed to viewmodel
         viewModel.imageStoreSubscriber = { [weak self] (success, url) in
             guard let self = self else {return}
             if success {
@@ -136,6 +140,7 @@ extension StoreExpenseVC {
             }
         }
         
+        /// Subscribe to expense store state
         viewModel.expenseStoreSubscriber = { [weak self] (success) in
             guard let self = self else {return}
             if success {
