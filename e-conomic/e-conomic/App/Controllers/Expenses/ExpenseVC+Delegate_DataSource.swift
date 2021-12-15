@@ -31,18 +31,18 @@ extension ExpensesVC: UINavigationControllerDelegate, UIImagePickerControllerDel
 // MARK: - UICollectionView Delegate & Data Source
 extension ExpensesVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return expenses.count
+        return viewModel.expenses.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? ExpenseCell else {
             fatalError()
         }
-        cell.configure(from: expenses[indexPath.item])
+        cell.configure(from: viewModel.expenses[indexPath.item])
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        navigateToExpenseDetailsScreen(expenses[indexPath.item])
+        navigateToExpenseDetailsScreen(viewModel.expenses[indexPath.item])
     }
 }

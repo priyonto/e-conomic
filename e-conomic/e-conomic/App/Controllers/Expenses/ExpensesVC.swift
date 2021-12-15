@@ -11,9 +11,7 @@ import AVKit
 
 class ExpensesVC: UIViewController {
     
-    // MARK: - VARIABLES
-    var expenses: [Expense] = []
-    
+
     // MARK: - UI COMPONENTS
     /// collectionview to hold the list of expense history
     lazy var collectionView: UICollectionView = {
@@ -41,7 +39,7 @@ class ExpensesVC: UIViewController {
     lazy var noResultsLbl = UILabel(text: "No expense record found.", textColor: .secondaryLabel, font: .AppleSDGothicNeo(.medium, size: 22), alignment: .center)
     
     // MARK: - CONSTANTS
-    fileprivate let viewModel = ExpenseViewModel()
+    let viewModel = ExpenseViewModel()
     let cellIdentifier: String = "cellIdentifier"
     let picker = UIImagePickerController()
     let cellHeight: CGFloat = 140
@@ -62,7 +60,6 @@ extension ExpensesVC {
         
         viewModel.expenseListSubscriber = { [weak self] (result) in
             guard let self = self else {return}
-            self.expenses = result
             self.reload()
         }
         
@@ -81,7 +78,7 @@ extension ExpensesVC {
     
     fileprivate func reload() {
         
-        if expenses.count == 0 {
+        if viewModel.expenses.count == 0 {
             self.noResultsLbl.isHidden = false
             self.collectionView.isHidden = true
         } else {
