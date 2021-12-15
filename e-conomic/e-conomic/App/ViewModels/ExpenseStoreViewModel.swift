@@ -30,31 +30,31 @@ extension ExpenseStoreViewModel {
     // Validate values sent from the controller
     func validateTextFields(place_name: String?, date: Int64?, currency: String?, amount: Double?, category: String? ) {
         guard !place_name.nullOrEmpty else {
-            let field = Field(name: .place_name, message: "Enter a valid name")
+            let field = Field(name: .place_name, message: Constants.enterValidName)
             fieldValidationResult?(.failure(field: field))
             return
         }
         
         guard let date = date, date > 0 else {
-            let field = Field(name: .date, message: "Enter a valid date")
+            let field = Field(name: .date, message: Constants.enterValidDate)
             fieldValidationResult?(.failure(field: field))
             return
         }
         
         guard !currency.nullOrEmpty else {
-            let field = Field(name: .currency, message: "Select a valid currency")
+            let field = Field(name: .currency, message: Constants.selectValidCurrency)
             fieldValidationResult?(.failure(field: field))
             return
         }
         
         guard let amount = amount, amount > 0 else {
-            let field = Field(name: .amount, message: "Enter a valid amount")
+            let field = Field(name: .amount, message: Constants.enterValidAmount)
             fieldValidationResult?(.failure(field: field))
             return
         }
         
         guard !category.nullOrEmpty else {
-            let field = Field(name: .category, message: "Select a valid category")
+            let field = Field(name: .category, message: Constants.selectValidCategory)
             fieldValidationResult?(.failure(field: field))
             return
         }
