@@ -24,9 +24,10 @@ class StoreExpenseVC: UIViewController {
     // MARK: - VARIABLES
     
     fileprivate var captureReceipt: UIImage!
-    fileprivate var selectedCategory: Category!
-    fileprivate var selectedCurrency: Currency!
     fileprivate var selectedDate: Int64 = 0
+    
+    var selectedCategory: Category!
+    var selectedCurrency: Currency!
     
     // MARK: - UI Components
     
@@ -166,24 +167,6 @@ extension StoreExpenseVC {
         viewModel.store(with: expense)
     }
 
-}
-
-
-
-extension StoreExpenseVC: GenericSelectionDelegate {
-    func didSelectItem(item: Any) {
-        if let item = item as? Category {
-            categoryTextField.text = item.name
-            selectedCategory = item
-        } else if let item = item as? Currency {
-            currencyTextField.text = "\(item.name) - \(item.symbol)"
-            selectedCurrency = item
-        } else {
-            // something out of the context
-        }
-    }
-    
-    
 }
 
 // MARK: - Actions

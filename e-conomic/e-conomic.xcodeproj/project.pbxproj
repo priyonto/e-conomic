@@ -59,6 +59,7 @@
 		345B95CC2769F988008C5B75 /* GenericSelectionVC+Delegate_DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95CB2769F988008C5B75 /* GenericSelectionVC+Delegate_DataSource.swift */; };
 		345B95CE2769FA00008C5B75 /* GenericSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95CD2769FA00008C5B75 /* GenericSelectionViewModel.swift */; };
 		345B95D0276A08BD008C5B75 /* StoreExpenseVC+SetupUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95CF276A08BD008C5B75 /* StoreExpenseVC+SetupUI.swift */; };
+		345B95D2276A0A8B008C5B75 /* StoreExpenseVC+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95D1276A0A8B008C5B75 /* StoreExpenseVC+Delegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +134,7 @@
 		345B95CB2769F988008C5B75 /* GenericSelectionVC+Delegate_DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GenericSelectionVC+Delegate_DataSource.swift"; sourceTree = "<group>"; };
 		345B95CD2769FA00008C5B75 /* GenericSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericSelectionViewModel.swift; sourceTree = "<group>"; };
 		345B95CF276A08BD008C5B75 /* StoreExpenseVC+SetupUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StoreExpenseVC+SetupUI.swift"; sourceTree = "<group>"; };
+		345B95D1276A0A8B008C5B75 /* StoreExpenseVC+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StoreExpenseVC+Delegate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -436,6 +438,7 @@
 			children = (
 				345B95882767AE49008C5B75 /* StoreExpenseVC.swift */,
 				345B95CF276A08BD008C5B75 /* StoreExpenseVC+SetupUI.swift */,
+				345B95D1276A0A8B008C5B75 /* StoreExpenseVC+Delegate.swift */,
 			);
 			path = "Expense Store";
 			sourceTree = "<group>";
@@ -682,6 +685,7 @@
 				345B95B72768DA56008C5B75 /* String+Ext.swift in Sources */,
 				345B9597276886D8008C5B75 /* RealmManager.swift in Sources */,
 				345B95B42768D9BE008C5B75 /* FieldValidationResponse.swift in Sources */,
+				345B95D2276A0A8B008C5B75 /* StoreExpenseVC+Delegate.swift in Sources */,
 				345B95892767AE4A008C5B75 /* StoreExpenseVC.swift in Sources */,
 				345B95C52769F502008C5B75 /* ExpenseDetailsVC+SetupUI.swift in Sources */,
 				341DD6FD2767553E00507F1F /* UILabel+Init.swift in Sources */,
