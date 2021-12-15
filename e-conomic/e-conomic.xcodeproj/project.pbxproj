@@ -58,6 +58,7 @@
 		345B95CA2769F8B0008C5B75 /* GenericSelectionVC+SetupUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95C92769F8B0008C5B75 /* GenericSelectionVC+SetupUI.swift */; };
 		345B95CC2769F988008C5B75 /* GenericSelectionVC+Delegate_DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95CB2769F988008C5B75 /* GenericSelectionVC+Delegate_DataSource.swift */; };
 		345B95CE2769FA00008C5B75 /* GenericSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95CD2769FA00008C5B75 /* GenericSelectionViewModel.swift */; };
+		345B95D0276A08BD008C5B75 /* StoreExpenseVC+SetupUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95CF276A08BD008C5B75 /* StoreExpenseVC+SetupUI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +132,7 @@
 		345B95C92769F8B0008C5B75 /* GenericSelectionVC+SetupUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GenericSelectionVC+SetupUI.swift"; sourceTree = "<group>"; };
 		345B95CB2769F988008C5B75 /* GenericSelectionVC+Delegate_DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GenericSelectionVC+Delegate_DataSource.swift"; sourceTree = "<group>"; };
 		345B95CD2769FA00008C5B75 /* GenericSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericSelectionViewModel.swift; sourceTree = "<group>"; };
+		345B95CF276A08BD008C5B75 /* StoreExpenseVC+SetupUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StoreExpenseVC+SetupUI.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -433,6 +435,7 @@
 			isa = PBXGroup;
 			children = (
 				345B95882767AE49008C5B75 /* StoreExpenseVC.swift */,
+				345B95CF276A08BD008C5B75 /* StoreExpenseVC+SetupUI.swift */,
 			);
 			path = "Expense Store";
 			sourceTree = "<group>";
@@ -690,6 +693,7 @@
 				341DD6B927674A0E00507F1F /* AppDelegate.swift in Sources */,
 				341DD70C2767564000507F1F /* UITextField+Init.swift in Sources */,
 				345B95AA2768B504008C5B75 /* Category.swift in Sources */,
+				345B95D0276A08BD008C5B75 /* StoreExpenseVC+SetupUI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
