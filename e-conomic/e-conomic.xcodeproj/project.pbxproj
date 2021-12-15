@@ -64,6 +64,8 @@
 		345B95D7276A1426008C5B75 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95D6276A1426008C5B75 /* Constants.swift */; };
 		345B95DA276A27A2008C5B75 /* RealmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95D9276A27A2008C5B75 /* RealmTests.swift */; };
 		345B95DC276A2DA6008C5B75 /* ExpenseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95DB276A2DA6008C5B75 /* ExpenseTests.swift */; };
+		345B95DF276A3846008C5B75 /* currencies_test.json in Resources */ = {isa = PBXBuildFile; fileRef = 345B95DE276A3846008C5B75 /* currencies_test.json */; };
+		345B95E3276A38A0008C5B75 /* DecodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95E2276A38A0008C5B75 /* DecodableTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +145,8 @@
 		345B95D6276A1426008C5B75 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		345B95D9276A27A2008C5B75 /* RealmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTests.swift; sourceTree = "<group>"; };
 		345B95DB276A2DA6008C5B75 /* ExpenseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseTests.swift; sourceTree = "<group>"; };
+		345B95DE276A3846008C5B75 /* currencies_test.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = currencies_test.json; sourceTree = "<group>"; };
+		345B95E2276A38A0008C5B75 /* DecodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +209,7 @@
 		341DD6CE27674A1000507F1F /* e-conomicTests */ = {
 			isa = PBXGroup;
 			children = (
+				345B95DD276A3824008C5B75 /* Decodable */,
 				345B95D8276A2793008C5B75 /* Realm */,
 				341DD6CF27674A1000507F1F /* e_conomicTests.swift */,
 			);
@@ -541,6 +546,15 @@
 			path = Realm;
 			sourceTree = "<group>";
 		};
+		345B95DD276A3824008C5B75 /* Decodable */ = {
+			isa = PBXGroup;
+			children = (
+				345B95DE276A3846008C5B75 /* currencies_test.json */,
+				345B95E2276A38A0008C5B75 /* DecodableTests.swift */,
+			);
+			path = Decodable;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -666,6 +680,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				345B95DF276A3846008C5B75 /* currencies_test.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -736,6 +751,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				345B95DC276A2DA6008C5B75 /* ExpenseTests.swift in Sources */,
+				345B95E3276A38A0008C5B75 /* DecodableTests.swift in Sources */,
 				341DD6D027674A1000507F1F /* e_conomicTests.swift in Sources */,
 				345B95DA276A27A2008C5B75 /* RealmTests.swift in Sources */,
 			);
