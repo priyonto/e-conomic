@@ -9,13 +9,13 @@
 import Foundation
 import RealmSwift
 
+/// An instance of Realm to access Realm from different classes
 let realm = try! Realm()
 
 class RealmManager {
     
     public static let shared = RealmManager()
-    private let queue = DispatchQueue(label: "RealmQueue", qos: .default, target: .main)
-    
+
     // MARK: - Initializer
     
     private init() { }
@@ -26,14 +26,9 @@ class RealmManager {
         print(Realm.Configuration.defaultConfiguration.fileURL?.absoluteString ?? "N/A")
     }
 
-    func get(_ T : Object.Type) -> [Object] {
-        var objects = [Object]()
-        for result in realm.objects(T) {
-            objects.append(result)
-        }
-        return objects
-    }
     
+    // MARK: - Get realm objects
+    /// This method is used to get stored objects from realm database
     public func get<T: Object>() -> [T] {
 
         let result = realm.objects(T.self)
@@ -42,6 +37,9 @@ class RealmManager {
         return data
     }
     
+    // MARK: - Store realm object
+    /// This method is used to store single realm object to the realm database
+    /// with a completion handler to notify when the operation completes with a boolean result
     func add(_ object : Object, completion: @escaping (Bool) -> Void) {
         do {
             try realm.write {
