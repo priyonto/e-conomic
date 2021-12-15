@@ -80,7 +80,7 @@ extension ExpenseStoreViewModel {
     
     /// Store image to filemanager and returns a completion handler alongside the url
     func store(imageData: Data) {
-        let fileName = "receipt_" + UUID().uuidString + ".png"
+        let fileName = Constants.receiptPrefix + UUID().uuidString + Constants.receiptExt
         if let filePath = filePath(from: fileName) {
             do  {
                 try imageData.write(to: filePath,

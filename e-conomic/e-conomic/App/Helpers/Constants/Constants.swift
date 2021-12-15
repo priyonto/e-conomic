@@ -10,6 +10,10 @@ import Foundation
 
 
 struct Constants {
+    // MARK: - Misc
+    static let receiptPrefix = "receipt_"
+    static let receiptExt = ".png"
+    
     // MARK: - Textfield error messages
     static let enterValidName = "Enter a valid name"
     static let enterValidDate = "Enter a valid date"
