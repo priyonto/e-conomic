@@ -9,8 +9,6 @@
 import Foundation
 import RealmSwift
 
-/// An instance of Realm to access Realm from different classes
-let realm = try! Realm()
 
 class RealmManager {
     
@@ -30,7 +28,7 @@ class RealmManager {
     // MARK: - Get realm objects
     /// This method is used to get stored objects from realm database
     public func get<T: Object>() -> [T] {
-
+        let realm = try! Realm()
         let result = realm.objects(T.self)
         guard result.isEmpty == false else { return [] }
         let data: [T] = (0..<result.count).map { index in return result[index] }
@@ -41,6 +39,7 @@ class RealmManager {
     /// This method is used to store single realm object to the realm database
     /// with a completion handler to notify when the operation completes with a boolean result
     func add(_ object : Object, completion: @escaping (Bool) -> Void) {
+        let realm = try! Realm()
         do {
             try realm.write {
                 realm.add(object)

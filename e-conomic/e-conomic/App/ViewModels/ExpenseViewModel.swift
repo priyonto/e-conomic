@@ -27,6 +27,7 @@ class ExpenseViewModel: NSObject {
 extension ExpenseViewModel {
     /// Subscriber method for be reactive to the changes
     func subscribeToChanges() {
+        let realm = try! Realm()
         let results = realm.objects(Expense.StorageClass.self)
         notificationToken = results.observe { [weak self] _ in
             guard let self = self else {return}
