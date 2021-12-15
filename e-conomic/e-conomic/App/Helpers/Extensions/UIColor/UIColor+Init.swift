@@ -42,13 +42,4 @@ extension UIColor {
     static func rgb(r: CGFloat, g: CGFloat, b: CGFloat) -> UIColor {
         return UIColor(red: r/255, green: g/255, blue: b/255, alpha: 1)
     }
-    
-    static let appBaseColor = UIColor.init(hexString: "008454")
-    static let baseBGColor = UIColor(hexString: "FAFAFA")
-    static let blueColor = UIColor(hexString: "0E4AD7")
-    static let redColor = UIColor(hexString: "D70E0E")
-    static let toolBarButtonColor = UIColor(hexString: "54D68A")
-    static let lightDark = UIColor.black.withAlphaComponent(0.8)
-    static let menuTextColor = UIColor.rgb(r: 24, g: 57, b: 78)
-    static let interviewScreenHeaderColor = UIColor(hexString: "2A2F34")
 }
