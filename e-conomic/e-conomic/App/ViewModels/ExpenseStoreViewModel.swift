@@ -11,9 +11,14 @@ import Foundation
 
 struct ExpenseStoreViewModel {
     
+    // notifier to notify validation results of textfields
     var fieldValidationResult: ((_ result: FieldValidationResponse)->())?
     
+    // notifier to notify image store to filemanager
+    // returns imageURL alongside a boolean success/fail response
     var imageStoreSubscriber: ((_ result: Bool, _ url: URL?) -> ())?
+    
+    // notifier to notify whether the store request is complete
     var expenseStoreSubscriber: ((_ result: Bool) -> (Void))!
     
     init() {}
@@ -22,6 +27,7 @@ struct ExpenseStoreViewModel {
 
 extension ExpenseStoreViewModel {
     
+    // Validate values sent from the controller
     func validateTextFields(place_name: String?, date: Int64?, currency: String?, amount: Double?, category: String? ) {
         guard !place_name.nullOrEmpty else {
             let field = Field(name: .place_name, message: "Enter a valid name")
@@ -57,18 +63,22 @@ extension ExpenseStoreViewModel {
     }
 }
 
+// MARK: - Methods
 extension ExpenseStoreViewModel {
     
+    /// Store expense model to realm data base and returns the completion handler
     func store(with expense: Expense) {
         RealmManager.shared.add(expense.convertToStorage(), completion: expenseStoreSubscriber)
     }
-
+    
+    /// Generate a filemanager url with unique file name
     private func filePath(from name: String) -> URL? {
         let fileManager = FileManager.default
         let documentURL = fileManager.libraryPath()?.appendingPathComponent(name)
         return documentURL
     }
     
+    /// Store image to filemanager and returns a completion handler alongside the url
     func store(imageData: Data) {
         let fileName = "receipt_" + UUID().uuidString + ".png"
         if let filePath = filePath(from: fileName) {
