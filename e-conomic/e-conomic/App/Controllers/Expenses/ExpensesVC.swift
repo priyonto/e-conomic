@@ -11,10 +11,10 @@ import AVKit
 
 class ExpensesVC: UIViewController {
     
-    // MARK:- VARIABLES
+    // MARK: - VARIABLES
+    var expenses: [Expense] = []
     
-    fileprivate var expenses: [Expense] = []
-    
+    // MARK: - UI COMPONENTS
     /// collectionview to hold the list of expense history
     lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
@@ -39,11 +39,12 @@ class ExpensesVC: UIViewController {
     
     lazy var noResultsLbl = UILabel(text: "No expense record found.", textColor: .secondaryLabel, font: .AppleSDGothicNeo(.medium, size: 22), alignment: .center)
     
-    // MARK:- CONSTANTS
-    
+    // MARK: - CONSTANTS
     fileprivate let viewModel = ExpenseViewModel()
-    fileprivate let cellIdentifier: String = "cellIdentifier"
-    fileprivate let picker = UIImagePickerController()
+    let cellIdentifier: String = "cellIdentifier"
+    let picker = UIImagePickerController()
+    let cellHeight: CGFloat = 140
+    let spacing: CGFloat = 16
     
 
 
@@ -89,32 +90,6 @@ extension ExpensesVC {
     }
 }
 
-
-// MARK:- SETUP UI
-extension ExpensesVC {
-    fileprivate func setupUI() {
-        view.backgroundColor = .systemBackground
-        self.title = "Expenses"
-        
-        view.addSubview(noResultsLbl)
-        noResultsLbl.centerInSuperview()
-        
-        view.addSubview(collectionView)
-        collectionView.fillSuperview()
-        
-        view.addSubview(captureButton)
-        captureButton.anchor(top: nil,
-                             leading: nil,
-                             bottom: view.safeBottomAnchor,
-                             trailing: view.trailingAnchor,
-                             padding: .init(top: 0, left: 0, bottom: 24, right: 24),
-                             size: .init(width: 60, height: 60))
-    }
-    
-    fileprivate func registerCell() {
-        collectionView.register(ExpenseCell.self, forCellWithReuseIdentifier: cellIdentifier)
-    }
-}
 
 extension ExpensesVC {
     @objc fileprivate func handleCaptureButtonTap() {
@@ -211,7 +186,6 @@ extension ExpensesVC: UINavigationControllerDelegate, UIImagePickerControllerDel
 }
 
 
-
 // MARK:- UICOLLECTIONVIEW DELEGATE & DATA SOURCE
 extension ExpensesVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -231,45 +205,5 @@ extension ExpensesVC: UICollectionViewDelegate, UICollectionViewDataSource {
     }
 }
 
-// MARK:- UICOLLECTIONVIEWDELEGAGEFLOWLAYOUT
 
-extension ExpensesVC: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let height: CGFloat = 140
-        let width: CGFloat = collectionView.bounds.width
-        return .init(width: width, height: height)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 16
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .init(top: 16, left: 0, bottom: 0, right: 0)
-    }
-}
 
-// SCROLL ACTIONS
-extension ExpensesVC {
-    
-    // Hide the floating button when the scrolling starts, after 0.5 seconds delay
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        UIView.animate(withDuration: 0.5, animations: { [weak self] in
-            guard let self = self else {return}
-            self.captureButton.alpha = 0
-        })
-    }
-    
-    // Show the floating button when the scrolling ends, after 0.5 seconds delay
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        UIView.animate(withDuration: 0.5, animations: { [weak self] in
-            guard let self = self else {return}
-            self.captureButton.alpha = 1
-        })
-    }
-    
-}
