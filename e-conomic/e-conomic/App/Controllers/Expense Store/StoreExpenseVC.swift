@@ -74,6 +74,7 @@ class StoreExpenseVC: UIViewController {
     
     lazy var currencyTextField: UITextField = {
         let textfield = UITextField(placeHolder: "Select currency")
+        textfield.delegate = self
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleCurrencyChoiceTap))
         textfield.addGestureRecognizer(tap)
         return textfield
@@ -82,6 +83,7 @@ class StoreExpenseVC: UIViewController {
     lazy var amountTextField = UITextField(keyboardType: .decimalPad, placeHolder: "Enter the total amount")
     lazy var categoryTextField: UITextField = {
         let textfield = UITextField(placeHolder: "Choose category")
+        textfield.delegate = self
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleCategoryChoiceTap))
         textfield.addGestureRecognizer(tap)
         return textfield
