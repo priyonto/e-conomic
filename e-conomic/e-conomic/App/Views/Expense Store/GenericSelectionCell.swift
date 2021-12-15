@@ -27,6 +27,11 @@ extension GenericSelectionCell {
     func configure(with category: Category)  {
         dataLbl.text = "\(category.name)"
     }
+    
+    /// Make everything nil before reuse
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        dataLbl.text = nil
 }
 
 // MARK: - SETUP UI COMPONENTS
