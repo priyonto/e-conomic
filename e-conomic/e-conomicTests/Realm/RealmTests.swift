@@ -12,6 +12,10 @@ import RealmSwift
 
 class RealmTests: XCTestCase {
     
+    override func setUp() {
+        Realm.Configuration.defaultConfiguration.inMemoryIdentifier = "RealmTest"
+    }
+    
     func testStore() {
         // To add
         let expense = RealmExpense()

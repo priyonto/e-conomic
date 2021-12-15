@@ -20,7 +20,7 @@ class GenericSelectionViewModelTests: XCTestCase {
     
     func testInitWithCategorySelection() {
         
-        var viewModel = GenericSelectionViewModel(.category)
+        let viewModel = GenericSelectionViewModel(.category)
         XCTAssertEqual(viewModel.categories.count, 8)
         
     }
