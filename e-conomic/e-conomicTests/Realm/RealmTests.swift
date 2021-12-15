@@ -20,6 +20,7 @@ class RealmTests: XCTestCase {
         expense.currency_name = "Norwegian Kroner"
         expense.currency_symbol = "kr."
         expense.category = "Grocery"
+        expense.amount = 1200
         expense.receipt_image_name = "receipt_12123123.png"
         
         let realmTest = try! Realm()
@@ -37,6 +38,7 @@ class RealmTests: XCTestCase {
         XCTAssertEqual(result?.currency_name, expense.currency_name)
         XCTAssertEqual(result?.currency_symbol, expense.currency_symbol)
         XCTAssertEqual(result?.category, expense.category)
+        XCTAssertEqual(result?.amount, expense.amount)
         XCTAssertEqual(result?.receipt_image_name, expense.receipt_image_name)
         
         

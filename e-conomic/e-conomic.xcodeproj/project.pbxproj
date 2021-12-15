@@ -63,6 +63,7 @@
 		345B95D4276A11B0008C5B75 /* ExpenseStoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95D3276A11B0008C5B75 /* ExpenseStoreViewModel.swift */; };
 		345B95D7276A1426008C5B75 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95D6276A1426008C5B75 /* Constants.swift */; };
 		345B95DA276A27A2008C5B75 /* RealmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95D9276A27A2008C5B75 /* RealmTests.swift */; };
+		345B95DC276A2DA6008C5B75 /* ExpenseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95DB276A2DA6008C5B75 /* ExpenseTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +142,7 @@
 		345B95D3276A11B0008C5B75 /* ExpenseStoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseStoreViewModel.swift; sourceTree = "<group>"; };
 		345B95D6276A1426008C5B75 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		345B95D9276A27A2008C5B75 /* RealmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTests.swift; sourceTree = "<group>"; };
+		345B95DB276A2DA6008C5B75 /* ExpenseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -534,6 +536,7 @@
 			isa = PBXGroup;
 			children = (
 				345B95D9276A27A2008C5B75 /* RealmTests.swift */,
+				345B95DB276A2DA6008C5B75 /* ExpenseTests.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -732,6 +735,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				345B95DC276A2DA6008C5B75 /* ExpenseTests.swift in Sources */,
 				341DD6D027674A1000507F1F /* e_conomicTests.swift in Sources */,
 				345B95DA276A27A2008C5B75 /* RealmTests.swift in Sources */,
 			);
