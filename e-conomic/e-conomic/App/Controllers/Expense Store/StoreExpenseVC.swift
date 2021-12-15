@@ -21,14 +21,14 @@ class StoreExpenseVC: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK:- VARIABLES
+    // MARK: - VARIABLES
     
     fileprivate var captureReceipt: UIImage!
     fileprivate var selectedCategory: Category!
     fileprivate var selectedCurrency: Currency!
     fileprivate var selectedDate: Int64 = 0
     
-    //
+    // MARK: - UI Components
     
     lazy var scrollView: UIScrollView = {
         let sv = UIScrollView()
@@ -93,8 +93,7 @@ class StoreExpenseVC: UIViewController {
         return button
     }()
     
-    // CONSTANTS
-    
+    // MARK: - CONSTANTS
     fileprivate let viewModel = ExpenseViewModel()
     
     
@@ -190,23 +189,30 @@ extension StoreExpenseVC: GenericSelectionDelegate {
 // MARK: - Actions
 
 extension StoreExpenseVC {
+    /// Button action on record create tap
+    /// This starts validating the textfields
     @objc fileprivate func handleRecordCreateTap() {
         validateTextFields()
     }
     
+    /// Button action for currency textfield tap
+    /// This takes user to a separate screen to select currency from a list
     @objc fileprivate func handleCurrencyChoiceTap() {
         navigateToGenericSelectionScreen(.currency, delegate: self)
     }
     
+    /// Button action for category textfield tap
+    /// This takes user to a separate screen to select category from a list
     @objc fileprivate func handleCategoryChoiceTap() {
         navigateToGenericSelectionScreen(.category, delegate: self)
     }
     
-    
+    /// This action occurs when cancel is tapped on the datepicker
     @objc func datePickerCancel() {
         dateTextField.resignFirstResponder()
     }
     
+    /// This action occurs when done is tapped on the datepicker
     @objc func datePickerDone() {
         if selectedDate != 0 {
             dateTextField.resignFirstResponder()
@@ -216,10 +222,12 @@ extension StoreExpenseVC {
         }
     }
     
+    /// This action occurs when date is changed on the picker
     @objc func dateChanged() {
         handleSelectedDate(with: datePicker.date)
     }
     
+    /// This method handles formatting the date after selection and render in the textfield with expected format
     func handleSelectedDate(with date: Date) {
         selectedDate = date.millisecondsSince1970
         dateTextField.text = DateFormatter.dateTimeFormatter.string(from: date)
