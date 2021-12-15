@@ -8,6 +8,10 @@
 
 import UIKit
 
+// MARK: - BaseCollectionViewCell
+/// This extended class from UICollectionViewCell contains the boilerplate codes that has to be written on each instantiation of a UICollectionViewCell
+/// Extending this subclass gives the flexibility to avoid those chunks of code and just write the functional part
+///
 class BaseCollectionViewCell: UICollectionViewCell {
     
     lazy var width: NSLayoutConstraint = {
@@ -23,8 +27,6 @@ class BaseCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-//        backgroundColor = .clear
-//        contentView.backgroundColor = .clear
         contentView.translatesAutoresizingMaskIntoConstraints = false
         setupUI()
     }
