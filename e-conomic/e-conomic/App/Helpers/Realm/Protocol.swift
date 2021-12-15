@@ -7,7 +7,8 @@
 //
 
 import RealmSwift
-
+// MARK: - Protocol - Storable
+/// This protocol is used to convert swift Decodable structs to RealmObject as well as RealmObject to Decodable
 protocol Storable {
     associatedtype StorageClass: Object
     func convertToStorage() -> StorageClass
