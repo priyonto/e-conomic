@@ -18,7 +18,6 @@ extension UIImageView {
         self.contentMode = contentMode
         self.layer.cornerRadius = cornerRadius
         self.clipsToBounds = true
-        self.isAccessibilityElement = false
     }
     
 }
