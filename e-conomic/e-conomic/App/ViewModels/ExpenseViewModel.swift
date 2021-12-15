@@ -11,9 +11,6 @@ import RealmSwift
 
 class ExpenseViewModel: NSObject {
     
-    var currenciesSubscriber: ((_ result: [Currency]) ->())?
-    var categoriesSubscriber: ((_ result: [Category]) ->())?
-    
     var fieldValidationResult: ((_ result: FieldValidationResponse)->())?
     
     var imageStoreSubscriber: ((_ result: Bool, _ url: URL?) -> ())?
@@ -104,24 +101,4 @@ extension ExpenseViewModel {
         let expenses = objects.map({ Expense.convertFromStorage($0)})
         expenseListSubscriber?(expenses)
     }
-}
-
-extension ExpenseViewModel {
-    
-    func getSelectionItems(_ selection: SelectionState) {
-        switch selection {
-        case .currency:
-            currenciesSubscriber?(parseJsonFile(selection))
-        case .category:
-            categoriesSubscriber?(parseJsonFile(selection))
-        }
-    }
-    
-    func parseJsonFile<T: Decodable>(_ selection: SelectionState) -> [T] {
-        guard let output = [T].parse(fileName: selection.rawValue) else {
-         return []
-        }
-        return output
-    }
-    
 }

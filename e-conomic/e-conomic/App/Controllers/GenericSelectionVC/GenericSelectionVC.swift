@@ -26,10 +26,13 @@ class GenericSelectionVC: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK:- VARIABLES
+    // MARK: - VARIABLES
     
     var selectionState: SelectionState = .currency
     weak var delegate: GenericSelectionDelegate?
+    
+    /// Lazy loaded viewmodel
+    lazy var viewModel = GenericSelectionViewModel(selectionState)
     
     // MARK: - UI Components
     /// Searchbar
@@ -63,16 +66,13 @@ class GenericSelectionVC: UIViewController {
     }()
     
     
-    // MARK:- CONSTANTS
-    
-    let viewModel = ExpenseViewModel()
+    // MARK: - CONSTANTS
+
     let cellIdentifier: String = "cellIdentifier"
     let cellHeight: CGFloat = 60
     let spacing: CGFloat = 16
-    
-    var currencies: [Currency] = []
-    var categories: [Category] = []
-    
+
+
 
 
     override func viewDidLoad() {
@@ -86,42 +86,22 @@ class GenericSelectionVC: UIViewController {
 
 extension GenericSelectionVC {
     fileprivate func bindViewModel() {
-        viewModel.currenciesSubscriber = { [weak self] (result) in
+        viewModel.currenciesSubscriber = { [weak self] _ in
             guard let self = self else {return}
-            self.currencies = result
             self.reload()
         }
         
-        viewModel.categoriesSubscriber = { [weak self] (result) in
+        viewModel.categoriesSubscriber = { [weak self] _ in
             guard let self = self else {return}
-            self.categories = result
             self.reload()
         }
-        
-        viewModel.getSelectionItems(selectionState)
     }
     
     fileprivate func reload() {
-        collectionView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else {return}
+            self.collectionView.reloadData()
+        }
     }
  
-}
-
-extension GenericSelectionVC: UISearchBarDelegate {
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        guard searchText.isEmpty else {return}
-        // Do something here
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        // Do something here
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let searchKey = searchBar.text, !searchKey.isEmpty else {
-            return
-        }
-        // Do something here
-    }
 }

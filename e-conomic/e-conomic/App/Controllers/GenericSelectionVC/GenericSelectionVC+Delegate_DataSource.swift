@@ -16,10 +16,10 @@ extension GenericSelectionVC: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch selectionState {
         case .currency:
-            return currencies.count
+            return viewModel.currencies.count
             
         case .category:
-            return categories.count
+            return viewModel.categories.count
         }
     }
     
@@ -29,10 +29,10 @@ extension GenericSelectionVC: UICollectionViewDelegate, UICollectionViewDataSour
         }
         switch selectionState {
         case .currency:
-            cell.configure(with: currencies[indexPath.item])
+            cell.configure(with: viewModel.currencies[indexPath.item])
             
         case .category:
-            cell.configure(with: categories[indexPath.item])
+            cell.configure(with: viewModel.categories[indexPath.item])
         }
         return cell
     }
@@ -41,11 +41,35 @@ extension GenericSelectionVC: UICollectionViewDelegate, UICollectionViewDataSour
         // Go back to previous screen
         switch selectionState {
         case .currency:
-            delegate?.didSelectItem(item: currencies[indexPath.item])
+            delegate?.didSelectItem(item: viewModel.currencies[indexPath.item])
             
         case .category:
-            delegate?.didSelectItem(item: categories[indexPath.item])
+            delegate?.didSelectItem(item: viewModel.categories[indexPath.item])
         }
         _ = navigationController?.popViewController(animated: true)
+    }
+}
+
+
+// MARK: - Search bar delegate
+extension GenericSelectionVC: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard !searchText.isEmpty else {
+            viewModel.reset()
+            return
+        }
+        viewModel.search(searchText)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        viewModel.reset()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchKey = searchBar.text, !searchKey.isEmpty else {
+            return
+        }
+        viewModel.search(searchKey)
     }
 }

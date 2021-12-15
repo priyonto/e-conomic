@@ -57,6 +57,7 @@
 		345B95C72769F548008C5B75 /* ExpenseDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95C62769F548008C5B75 /* ExpenseDetailsViewModel.swift */; };
 		345B95CA2769F8B0008C5B75 /* GenericSelectionVC+SetupUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95C92769F8B0008C5B75 /* GenericSelectionVC+SetupUI.swift */; };
 		345B95CC2769F988008C5B75 /* GenericSelectionVC+Delegate_DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95CB2769F988008C5B75 /* GenericSelectionVC+Delegate_DataSource.swift */; };
+		345B95CE2769FA00008C5B75 /* GenericSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95CD2769FA00008C5B75 /* GenericSelectionViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +130,7 @@
 		345B95C62769F548008C5B75 /* ExpenseDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDetailsViewModel.swift; sourceTree = "<group>"; };
 		345B95C92769F8B0008C5B75 /* GenericSelectionVC+SetupUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GenericSelectionVC+SetupUI.swift"; sourceTree = "<group>"; };
 		345B95CB2769F988008C5B75 /* GenericSelectionVC+Delegate_DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GenericSelectionVC+Delegate_DataSource.swift"; sourceTree = "<group>"; };
+		345B95CD2769FA00008C5B75 /* GenericSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericSelectionViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,6 +257,7 @@
 			children = (
 				345B95AB2768B67D008C5B75 /* ExpenseViewModel.swift */,
 				345B95C62769F548008C5B75 /* ExpenseDetailsViewModel.swift */,
+				345B95CD2769FA00008C5B75 /* GenericSelectionViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -651,6 +654,7 @@
 				341DD6FA276754DF00507F1F /* VStackView.swift in Sources */,
 				345B95992768872B008C5B75 /* RealmExpense.swift in Sources */,
 				345B95C32769EBB6008C5B75 /* ExpenseVC+Delegate_DataSource.swift in Sources */,
+				345B95CE2769FA00008C5B75 /* GenericSelectionViewModel.swift in Sources */,
 				341DD71427676AEA00507F1F /* BaseCollectionViewCell.swift in Sources */,
 				345B95912767C622008C5B75 /* GenericSelectionCell.swift in Sources */,
 				345B95C12769E885008C5B75 /* ExpenseVC+SetupUI.swift in Sources */,
