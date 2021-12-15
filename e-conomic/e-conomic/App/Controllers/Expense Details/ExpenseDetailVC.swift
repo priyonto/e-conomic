@@ -69,6 +69,7 @@ class ExpenseDetailsVC: UIViewController {
     }
 }
 
+// MARK: - Render UI with ViewModel
 extension ExpenseDetailsVC {
     fileprivate func updateUI() {
         let viewModel = ExpenseDetailsViewModel(expense)
@@ -79,7 +80,14 @@ extension ExpenseDetailsVC {
         costLbl.text = viewModel.cost
         reciptIV.image = viewModel.image
     }
+}
+
+// MARK: - Actions
+
+extension ExpenseDetailsVC {
     
+    /// Handle the pewview image tap.
+    /// This opens the full screen image also enables a close button to dismiss fullscreen mode
     @objc fileprivate func handleImageTap() {
         
         navigationController?.view.addSubview(fullscreenIV)
@@ -102,7 +110,7 @@ extension ExpenseDetailsVC {
         })
     }
     
-    
+    /// Handle close button tap when image is fullscreen
     @objc fileprivate func handleCloseTap() {
         
         UIView.animate(withDuration: 0.4, delay: 0.0, options: .curveEaseInOut, animations: { [weak self] in
@@ -115,3 +123,4 @@ extension ExpenseDetailsVC {
         })
     }
 }
+
