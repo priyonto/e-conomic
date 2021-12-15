@@ -55,6 +55,7 @@
 		345B95C32769EBB6008C5B75 /* ExpenseVC+Delegate_DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95C22769EBB6008C5B75 /* ExpenseVC+Delegate_DataSource.swift */; };
 		345B95C52769F502008C5B75 /* ExpenseDetailsVC+SetupUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95C42769F502008C5B75 /* ExpenseDetailsVC+SetupUI.swift */; };
 		345B95C72769F548008C5B75 /* ExpenseDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95C62769F548008C5B75 /* ExpenseDetailsViewModel.swift */; };
+		345B95CA2769F8B0008C5B75 /* GenericSelectionVC+SetupUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95C92769F8B0008C5B75 /* GenericSelectionVC+SetupUI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +126,7 @@
 		345B95C22769EBB6008C5B75 /* ExpenseVC+Delegate_DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExpenseVC+Delegate_DataSource.swift"; sourceTree = "<group>"; };
 		345B95C42769F502008C5B75 /* ExpenseDetailsVC+SetupUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExpenseDetailsVC+SetupUI.swift"; sourceTree = "<group>"; };
 		345B95C62769F548008C5B75 /* ExpenseDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDetailsViewModel.swift; sourceTree = "<group>"; };
+		345B95C92769F8B0008C5B75 /* GenericSelectionVC+SetupUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GenericSelectionVC+SetupUI.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +230,7 @@
 		341DD6EA276753C000507F1F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				345B95C82769F886008C5B75 /* GenericSelectionVC */,
 				345B95872767AE26008C5B75 /* Expense Store */,
 				345B958127679EA8008C5B75 /* Expense Details */,
 				341DD7102767696800507F1F /* Expenses */,
@@ -425,8 +428,6 @@
 			isa = PBXGroup;
 			children = (
 				345B95882767AE49008C5B75 /* StoreExpenseVC.swift */,
-				345B95B02768D0C2008C5B75 /* GenericSelectionProtocol.swift */,
-				345B958D2767C51F008C5B75 /* GenericSelectionVC.swift */,
 			);
 			path = "Expense Store";
 			sourceTree = "<group>";
@@ -488,6 +489,16 @@
 				345B95BB27693409008C5B75 /* DateFormatter+Ext.swift */,
 			);
 			path = Date;
+			sourceTree = "<group>";
+		};
+		345B95C82769F886008C5B75 /* GenericSelectionVC */ = {
+			isa = PBXGroup;
+			children = (
+				345B95B02768D0C2008C5B75 /* GenericSelectionProtocol.swift */,
+				345B958D2767C51F008C5B75 /* GenericSelectionVC.swift */,
+				345B95C92769F8B0008C5B75 /* GenericSelectionVC+SetupUI.swift */,
+			);
+			path = GenericSelectionVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -632,6 +643,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				345B95CA2769F8B0008C5B75 /* GenericSelectionVC+SetupUI.swift in Sources */,
 				345B959B2768A80E008C5B75 /* Expense.swift in Sources */,
 				341DD6FA276754DF00507F1F /* VStackView.swift in Sources */,
 				345B95992768872B008C5B75 /* RealmExpense.swift in Sources */,

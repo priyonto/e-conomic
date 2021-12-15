@@ -28,8 +28,8 @@ class GenericSelectionVC: UIViewController {
     
     // MARK:- VARIABLES
     
-    fileprivate var selectionState: SelectionState = .currency
-    fileprivate weak var delegate: GenericSelectionDelegate?
+    var selectionState: SelectionState = .currency
+    weak var delegate: GenericSelectionDelegate?
     
     //
     
@@ -66,11 +66,13 @@ class GenericSelectionVC: UIViewController {
     
     // MARK:- CONSTANTS
     
-    fileprivate let viewModel = ExpenseViewModel()
-    fileprivate let cellIdentifier: String = "cellIdentifier"
+    let viewModel = ExpenseViewModel()
+    let cellIdentifier: String = "cellIdentifier"
+    let cellHeight: CGFloat = 60
+    let spacing: CGFloat = 16
     
-    fileprivate var currencies: [Currency] = []
-    fileprivate var categories: [Category] = []
+    var currencies: [Currency] = []
+    var categories: [Category] = []
     
 
 
@@ -108,32 +110,7 @@ extension GenericSelectionVC {
 
 
 
-// MARK:- SETUP UI
-extension GenericSelectionVC {
-    fileprivate func setupUI() {
-        view.backgroundColor = .systemBackground
-        title = selectionState == .currency ? "Select Currency" : "Select Category"
-        
-        view.addSubview(searchBar)
-        searchBar.anchor(top: view.safeTopAnchor,
-                         leading: view.leadingAnchor,
-                         bottom: nil,
-                         trailing: view.trailingAnchor,
-                         padding: .init(top: 8, left: 8, bottom: 0, right: 8))
-        
-        view.addSubview(collectionView)
-        collectionView.anchor(top: searchBar.bottomAnchor,
-                              leading: view.leadingAnchor,
-                              bottom: view.safeBottomAnchor,
-                              trailing: view.trailingAnchor,
-                              padding: .init(top: 16, left: 0, bottom: 0, right: 0))
 
-    }
-    
-    fileprivate func registerCell() {
-        collectionView.register(GenericSelectionCell.self, forCellWithReuseIdentifier: cellIdentifier)
-    }
-}
 
 
 // MARK:- UICOLLECTIONVIEW DELEGATE & DATA SOURCE
@@ -173,28 +150,6 @@ extension GenericSelectionVC: UICollectionViewDelegate, UICollectionViewDataSour
             delegate?.didSelectItem(item: categories[indexPath.item])
         }
         _ = navigationController?.popViewController(animated: true)
-    }
-}
-
-// MARK:- UICOLLECTIONVIEWDELEGAGEFLOWLAYOUT
-
-extension GenericSelectionVC: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let height: CGFloat = 60
-        let width: CGFloat = collectionView.bounds.width
-        return .init(width: width, height: height)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 16
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .init(top: 16, left: 0, bottom: 0, right: 0)
     }
 }
 
