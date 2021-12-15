@@ -24,6 +24,14 @@ class AssetManager {
         }
         return nil
     }
+    
+    func retrieveImage(url: URL) -> UIImage? {
+        if let fileData = FileManager.default.contents(atPath: url.path),
+            let image = UIImage(data: fileData) {
+            return image
+        }
+        return nil
+    }
 }
 
 public enum AssetName: String, Codable {

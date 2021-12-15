@@ -71,12 +71,13 @@ class ExpenseDetailsVC: UIViewController {
 
 extension ExpenseDetailsVC {
     fileprivate func updateUI() {
-        dateLbl.text = DateFormatter.dateTimeFormatter.string(from: Date(milliseconds: expense.date))
-        placeLbl.text = "Spent at: \(expense.placeName)"
-        categoryLbl.text = "Category: \(expense.category)"
-        currencyLbl.text = "Currency: \(expense.currencyName)"
-        costLbl.text = "Total: \(expense.currencySymbol) \(expense.amount)"
-        reciptIV.image = retrieveImage(url: expense.receiptURL)
+        let viewModel = ExpenseDetailsViewModel(expense)
+        dateLbl.text = viewModel.date
+        placeLbl.text = viewModel.place
+        categoryLbl.text = viewModel.category
+        currencyLbl.text = viewModel.currency
+        costLbl.text = viewModel.cost
+        reciptIV.image = viewModel.image
     }
     
     @objc fileprivate func handleImageTap() {
@@ -101,13 +102,6 @@ extension ExpenseDetailsVC {
         })
     }
     
-    private func retrieveImage(url: URL) -> UIImage? {
-        if let fileData = FileManager.default.contents(atPath: url.path),
-            let image = UIImage(data: fileData) {
-            return image
-        }
-        return nil
-    }
     
     @objc fileprivate func handleCloseTap() {
         

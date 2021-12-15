@@ -54,6 +54,7 @@
 		345B95C12769E885008C5B75 /* ExpenseVC+SetupUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95C02769E884008C5B75 /* ExpenseVC+SetupUI.swift */; };
 		345B95C32769EBB6008C5B75 /* ExpenseVC+Delegate_DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95C22769EBB6008C5B75 /* ExpenseVC+Delegate_DataSource.swift */; };
 		345B95C52769F502008C5B75 /* ExpenseDetailsVC+SetupUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95C42769F502008C5B75 /* ExpenseDetailsVC+SetupUI.swift */; };
+		345B95C72769F548008C5B75 /* ExpenseDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95C62769F548008C5B75 /* ExpenseDetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,7 @@
 		345B95C02769E884008C5B75 /* ExpenseVC+SetupUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExpenseVC+SetupUI.swift"; sourceTree = "<group>"; };
 		345B95C22769EBB6008C5B75 /* ExpenseVC+Delegate_DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExpenseVC+Delegate_DataSource.swift"; sourceTree = "<group>"; };
 		345B95C42769F502008C5B75 /* ExpenseDetailsVC+SetupUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExpenseDetailsVC+SetupUI.swift"; sourceTree = "<group>"; };
+		345B95C62769F548008C5B75 /* ExpenseDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				345B95AB2768B67D008C5B75 /* ExpenseViewModel.swift */,
+				345B95C62769F548008C5B75 /* ExpenseDetailsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -651,6 +654,7 @@
 				345B95A02768AA6E008C5B75 /* FileManager+Ext.swift in Sources */,
 				345B95BA276911FE008C5B75 /* Date+Ext.swift in Sources */,
 				345B958027679057008C5B75 /* AssetManager.swift in Sources */,
+				345B95C72769F548008C5B75 /* ExpenseDetailsViewModel.swift in Sources */,
 				345B95B12768D0C3008C5B75 /* GenericSelectionProtocol.swift in Sources */,
 				345B95B72768DA56008C5B75 /* String+Ext.swift in Sources */,
 				345B9597276886D8008C5B75 /* RealmManager.swift in Sources */,
