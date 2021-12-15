@@ -56,6 +56,7 @@
 		345B95C52769F502008C5B75 /* ExpenseDetailsVC+SetupUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95C42769F502008C5B75 /* ExpenseDetailsVC+SetupUI.swift */; };
 		345B95C72769F548008C5B75 /* ExpenseDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95C62769F548008C5B75 /* ExpenseDetailsViewModel.swift */; };
 		345B95CA2769F8B0008C5B75 /* GenericSelectionVC+SetupUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95C92769F8B0008C5B75 /* GenericSelectionVC+SetupUI.swift */; };
+		345B95CC2769F988008C5B75 /* GenericSelectionVC+Delegate_DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95CB2769F988008C5B75 /* GenericSelectionVC+Delegate_DataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +128,7 @@
 		345B95C42769F502008C5B75 /* ExpenseDetailsVC+SetupUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExpenseDetailsVC+SetupUI.swift"; sourceTree = "<group>"; };
 		345B95C62769F548008C5B75 /* ExpenseDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDetailsViewModel.swift; sourceTree = "<group>"; };
 		345B95C92769F8B0008C5B75 /* GenericSelectionVC+SetupUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GenericSelectionVC+SetupUI.swift"; sourceTree = "<group>"; };
+		345B95CB2769F988008C5B75 /* GenericSelectionVC+Delegate_DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GenericSelectionVC+Delegate_DataSource.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -496,6 +498,7 @@
 			children = (
 				345B95B02768D0C2008C5B75 /* GenericSelectionProtocol.swift */,
 				345B958D2767C51F008C5B75 /* GenericSelectionVC.swift */,
+				345B95CB2769F988008C5B75 /* GenericSelectionVC+Delegate_DataSource.swift */,
 				345B95C92769F8B0008C5B75 /* GenericSelectionVC+SetupUI.swift */,
 			);
 			path = GenericSelectionVC;
@@ -654,6 +657,7 @@
 				341DD7092767560200507F1F /* UIButoon+Init.swift in Sources */,
 				341DD6F52767548A00507F1F /* UIView+Layout.swift in Sources */,
 				345B958327679EBB008C5B75 /* ExpenseDetailVC.swift in Sources */,
+				345B95CC2769F988008C5B75 /* GenericSelectionVC+Delegate_DataSource.swift in Sources */,
 				345B95A82768B4D6008C5B75 /* Currency.swift in Sources */,
 				341DD6F32767545800507F1F /* UIView+Init.swift in Sources */,
 				345B95AF2768CA00008C5B75 /* Decodable+Ext.swift in Sources */,
