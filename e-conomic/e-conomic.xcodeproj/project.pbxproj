@@ -66,6 +66,7 @@
 		345B95DF276A3846008C5B75 /* currencies_test.json in Resources */ = {isa = PBXBuildFile; fileRef = 345B95DE276A3846008C5B75 /* currencies_test.json */; };
 		345B95E3276A38A0008C5B75 /* DecodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95E2276A38A0008C5B75 /* DecodableTests.swift */; };
 		345B95E6276A3D92008C5B75 /* ExpenseDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95E5276A3D92008C5B75 /* ExpenseDetailsViewModelTests.swift */; };
+		345B95E8276A3F75008C5B75 /* GenericSelectionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95E7276A3F75008C5B75 /* GenericSelectionViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +148,7 @@
 		345B95DE276A3846008C5B75 /* currencies_test.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = currencies_test.json; sourceTree = "<group>"; };
 		345B95E2276A38A0008C5B75 /* DecodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableTests.swift; sourceTree = "<group>"; };
 		345B95E5276A3D92008C5B75 /* ExpenseDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDetailsViewModelTests.swift; sourceTree = "<group>"; };
+		345B95E7276A3F75008C5B75 /* GenericSelectionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericSelectionViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -559,6 +561,7 @@
 			isa = PBXGroup;
 			children = (
 				345B95E5276A3D92008C5B75 /* ExpenseDetailsViewModelTests.swift */,
+				345B95E7276A3F75008C5B75 /* GenericSelectionViewModelTests.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -761,6 +764,7 @@
 				345B95DC276A2DA6008C5B75 /* ExpenseTests.swift in Sources */,
 				345B95E3276A38A0008C5B75 /* DecodableTests.swift in Sources */,
 				345B95E6276A3D92008C5B75 /* ExpenseDetailsViewModelTests.swift in Sources */,
+				345B95E8276A3F75008C5B75 /* GenericSelectionViewModelTests.swift in Sources */,
 				345B95DA276A27A2008C5B75 /* RealmTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
