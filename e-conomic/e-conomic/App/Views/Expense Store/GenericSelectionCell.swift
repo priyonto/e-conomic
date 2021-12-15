@@ -32,6 +32,7 @@ extension GenericSelectionCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         dataLbl.text = nil
+    }
 }
 
 // MARK: - SETUP UI COMPONENTS
