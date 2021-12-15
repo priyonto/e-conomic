@@ -31,6 +31,7 @@ class ExpensesVC: UIViewController {
         return cv
     }()
     
+    // Button
     lazy var captureButton: UIButton = {
         let button = UIButton(image: assetManager.image(assetNamed: .camera), cornerRadius: 30)
         button.addTarget(self, action: #selector(handleCaptureButtonTap), for: .touchUpInside)
@@ -46,7 +47,6 @@ class ExpensesVC: UIViewController {
     let cellHeight: CGFloat = 140
     let spacing: CGFloat = 16
     
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,12 +65,18 @@ extension ExpensesVC {
             self.expenses = result
             self.reload()
         }
-        getExpenses()
+        
+        viewModel.subscribeToChanges()
     }
+}
+
+
+// MARK: - Actions
+extension ExpensesVC {
     
+    /// 
     fileprivate func getExpenses() {
         viewModel.getExpenses()
-        viewModel.subscribeToChanges()
     }
     
     fileprivate func reload() {
@@ -88,13 +94,8 @@ extension ExpensesVC {
         }
         
     }
-}
-
-
-extension ExpensesVC {
+    
     @objc fileprivate func handleCaptureButtonTap() {
-        // TODO:- HANDLE CAMERA & GALLERY PERMISSION PROPERLY
-        // IMPORTANT!!!
         checkCameraPermission()
     }
     
@@ -112,10 +113,6 @@ extension ExpensesVC {
         }))
 
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        
-        
-        //uncomment for iPad Support
-        //alert.popoverPresentationController?.sourceView = self.view
         
         present(alert, animated: true, completion: nil)
     }
@@ -149,7 +146,6 @@ extension ExpensesVC {
         
         let openSettingsAction = UIAlertAction(title: "Open Settings",
                                                style: .default) { [unowned self] (_) in
-            // Open app privacy settings
             gotoAppPrivacySettings()
         }
         alert.addAction(openSettingsAction)
@@ -160,7 +156,6 @@ extension ExpensesVC {
     func gotoAppPrivacySettings() {
         guard let url = URL(string: UIApplication.openSettingsURLString),
             UIApplication.shared.canOpenURL(url) else {
-                assertionFailure("Not able to open App privacy settings")
                 return
         }
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
