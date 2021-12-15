@@ -31,8 +31,7 @@ class GenericSelectionVC: UIViewController {
     var selectionState: SelectionState = .currency
     weak var delegate: GenericSelectionDelegate?
     
-    //
-    
+    // MARK: - UI Components
     /// Searchbar
     
     lazy var searchBar: UISearchBar = {
@@ -47,7 +46,7 @@ class GenericSelectionVC: UIViewController {
         return sb
     }()
     
-    /// collectionview to hold the list of expense history
+    /// collectionview to hold the list
     lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.sectionInsetReference = .fromContentInset
