@@ -58,7 +58,7 @@ class StoreExpenseVC: UIViewController {
     
     lazy var nameTextField = UITextField(placeHolder: "Where did you spend?")
     
-    lazy var dateTextField = UITextField(placeHolder: "When did you spend?")
+    lazy var dateTextField = UITextField(placeHolder: "Select invoice/receipt date")
     lazy var datePicker: UIDatePicker = {
         let datePicker = UIDatePicker()
         datePicker.translatesAutoresizingMaskIntoConstraints = false
