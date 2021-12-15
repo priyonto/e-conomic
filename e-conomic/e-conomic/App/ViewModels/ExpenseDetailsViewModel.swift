@@ -11,6 +11,13 @@ import UIKit
 
 
 struct ExpenseDetailsViewModel {
+    
+    // notifier to notify whether the delete request is complete
+    var expenseDeleteSubscriber: ((_ result: Bool) -> (Void))!
+    
+    
+    //
+    
     var date: String
     var place: String
     var category: String
@@ -28,4 +35,13 @@ struct ExpenseDetailsViewModel {
         self.image = assetManager.retrieveImage(url: expense.receiptURL)
     }
     
+}
+
+
+extension ExpenseDetailsViewModel {
+    
+    /// Delete expense model from realm data base and returns the completion handler
+    func delete(with expense: Expense) {
+        RealmManager.shared.delete(expense.convertToStorage(), completion: expenseDeleteSubscriber)
+    }
 }
