@@ -8,7 +8,8 @@
 
 import Foundation
 
-
+// MARK: - DeteFormatter
+/// Using this static instance saves cpu resources as creating dateformatter is a heavy operation
 extension DateFormatter {
     static let dateTimeFormatter: DateFormatter = {
         let df = DateFormatter()
