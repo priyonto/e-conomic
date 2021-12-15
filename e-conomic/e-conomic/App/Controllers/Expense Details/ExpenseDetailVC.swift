@@ -60,6 +60,11 @@ class ExpenseDetailsVC: UIViewController {
         return button
     }()
     
+    lazy var deleteButton: UIButton = {
+        let button = UIButton(backgroundColor: .systemRed, title: "Delete Expense Record", font: .AppleSDGothicNeo(.semiBold, size: 20), cornerRadius: 12)
+        button.addTarget(self, action: #selector(handleDeleteTap), for: .touchUpInside)
+        return button
+    }()
     
     
     override func viewDidLoad() {
@@ -85,6 +90,11 @@ extension ExpenseDetailsVC {
 // MARK: - Actions
 
 extension ExpenseDetailsVC {
+    
+    /// Handle delete record button
+    @objc fileprivate func handleDeleteTap() {
+        
+    }
     
     /// Handle the pewview image tap.
     /// This opens the full screen image also enables a close button to dismiss fullscreen mode

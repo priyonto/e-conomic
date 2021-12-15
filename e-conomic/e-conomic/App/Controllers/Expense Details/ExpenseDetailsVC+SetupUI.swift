@@ -50,10 +50,18 @@ extension ExpenseDetailsVC {
         container.addSubview(reciptIV)
         reciptIV.anchor(top: separator.bottomAnchor,
                         leading: separator.leadingAnchor,
-                        bottom: container.bottomAnchor,
+                        bottom: nil,
                         trailing: separator.trailingAnchor,
                         padding: .init(top: 16, left: 0, bottom: 0, right: 0),
                         size: .init(width: 0, height: 500))
+        
+        container.addSubview(deleteButton)
+        deleteButton.anchor(top: reciptIV.bottomAnchor,
+                            leading: separator.leadingAnchor,
+                            bottom: container.bottomAnchor,
+                            trailing: separator.trailingAnchor,
+                            padding: .init(top: 34, left: 16, bottom: 16, right: 16),
+                            size: .init(width: 0, height: 56))
         
     }
 }
