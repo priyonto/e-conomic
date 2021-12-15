@@ -28,8 +28,12 @@ struct Constants {
     static let errorOccured = "We are sorry!"
     static let requiredFieldTitle = "Required field"
     
+    static let imageAccessTitle = "Allow access to your photos"
+    static let imageAccessMessage = "This lets you capture image from camera or choose image from your photo library. Go to your settings and tap \"Photos\"."
+    static let selectImageSource = "Please Select Image Source"
     
-    // MARK: - Image error
+    
+    // MARK: - Image
     static let imageStoreErrorMsg = "Image could not be stored. Please try again."
     
     // MARK: - Data store error

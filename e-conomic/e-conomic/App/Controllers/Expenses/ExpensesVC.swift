@@ -71,11 +71,15 @@ extension ExpensesVC {
 // MARK: - Actions
 extension ExpensesVC {
     
-    /// 
+    /// Notify viewmodels to get the expense list from local database and
+    /// view model notifes back the controller once the results are ready
     fileprivate func getExpenses() {
         viewModel.getExpenses()
     }
     
+    /// Realods the view once viewmodel notifies the controller
+    /// If the result is 0 a static label shows up
+    /// Otherwise collectionview reloads
     fileprivate func reload() {
         
         if viewModel.expenses.count == 0 {
@@ -92,28 +96,13 @@ extension ExpensesVC {
         
     }
     
+    /// The button on the bottom right tap fires this action
+    /// It checks the camera permission of the user
     @objc fileprivate func handleCaptureButtonTap() {
         checkCameraPermission()
     }
     
-    fileprivate func selectImageSource() {
-        let alert = UIAlertController(title: nil, message: "Please Select Image Source", preferredStyle: .actionSheet)
-        
-        alert.addAction(UIAlertAction(title: "Camera", style: .default , handler:{ [weak self] action in
-            guard let self = self else {return}
-            self.presentCameraController(.camera)
-        }))
-        
-        alert.addAction(UIAlertAction(title: "Photo Library", style: .default , handler:{ [weak self] action in
-            guard let self = self else {return}
-            self.presentCameraController(.photoLibrary)
-        }))
-
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        
-        present(alert, animated: true, completion: nil)
-    }
-    
+    /// Present camera/photolibrary based on user selection
     fileprivate func presentCameraController(_ source: UIImagePickerController.SourceType) {
         picker.sourceType = source
         picker.allowsEditing = true
@@ -121,6 +110,9 @@ extension ExpensesVC {
         present(picker, animated: true)
     }
     
+    /// Checks for camera permission
+    /// If user permits/permitted the access it opens up source selection alert
+    /// Otherwise asks for permission
     func checkCameraPermission() {
         let authStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
         switch authStatus {
@@ -129,11 +121,26 @@ extension ExpensesVC {
         default: selectImageSource()
         }
     }
-
     
+    /// If access is denied previously it is required to take user to the settings app
+    /// if they later wants to access the camera
+    /// This method opens the iOS Settings app
+    func gotoAppPrivacySettings() {
+        guard let url = URL(string: UIApplication.openSettingsURLString),
+            UIApplication.shared.canOpenURL(url) else {
+                return
+        }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
+}
+
+
+extension ExpensesVC {
+    
+    /// Asks for camera access
     fileprivate func askForCameraAccess() {
-        let alert = UIAlertController(title: "Allow access to your photos",
-                                      message: "This lets you capture image from camera or choose image from your photo library. Go to your settings and tap \"Photos\".",
+        let alert = UIAlertController(title: Constants.imageAccessTitle,
+                                      message: Constants.imageAccessMessage,
                                       preferredStyle: .alert)
         
         let notNowAction = UIAlertAction(title: "Not Now",
@@ -150,15 +157,23 @@ extension ExpensesVC {
         present(alert, animated: true, completion: nil)
     }
     
-    func gotoAppPrivacySettings() {
-        guard let url = URL(string: UIApplication.openSettingsURLString),
-            UIApplication.shared.canOpenURL(url) else {
-                return
-        }
-        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    /// This shows an action sheet to give users two choice of image course: Camera, Photo Library
+    fileprivate func selectImageSource() {
+        let alert = UIAlertController(title: nil, message: Constants.selectImageSource, preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Camera", style: .default , handler:{ [weak self] action in
+            guard let self = self else {return}
+            self.presentCameraController(.camera)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Photo Library", style: .default , handler:{ [weak self] action in
+            guard let self = self else {return}
+            self.presentCameraController(.photoLibrary)
+        }))
+
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
+    
 }
-
-
-
 
