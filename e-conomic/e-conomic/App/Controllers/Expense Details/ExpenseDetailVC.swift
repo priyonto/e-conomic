@@ -10,6 +10,8 @@ import UIKit
 
 class ExpenseDetailsVC: UIViewController {
     
+    // MARK: - Dependency Injection
+    
     init(_ expense: Expense) {
         super.init(nibName: nil, bundle: nil)
         self.expense = expense
@@ -19,11 +21,11 @@ class ExpenseDetailsVC: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK:- VARIABLES
+    // MARK: - Variables
     
     fileprivate var expense: Expense!
     
-    //
+    // MARK: - UI Components
     
     lazy var scrollView: UIScrollView = {
         let sv = UIScrollView()
@@ -42,6 +44,7 @@ class ExpenseDetailsVC: UIViewController {
     lazy var costLbl = UILabel(text: "Kr. 1200", font: .AppleSDGothicNeo(.bold, size: 26), numberOfLines: 1)
     lazy var placeLbl = UILabel(text: "Spent at: Scandic Soli", numberOfLines: 1)
     lazy var separator = UIView(color: .label)
+    
     lazy var reciptIV: UIImageView = {
         let iv = UIImageView(image: nil, backgroundColor: .systemBackground, contentMode: .scaleAspectFill, cornerRadius: 6)
         iv.isUserInteractionEnabled = true
@@ -49,6 +52,8 @@ class ExpenseDetailsVC: UIViewController {
         return iv
     }()
     lazy var fullscreenIV = UIImageView(image: nil, backgroundColor: .systemBackground, contentMode: .scaleAspectFit)
+    
+    // Button
     lazy var closeButton: UIButton = {
         let button = UIButton(title: "Close", titleColor: .label, font: .AppleSDGothicNeo(.semiBold, size: 16))
         button.addTarget(self, action: #selector(handleCloseTap), for: .touchUpInside)
@@ -114,55 +119,5 @@ extension ExpenseDetailsVC {
                 self.closeButton.removeFromSuperview()
                 self.fullscreenIV.removeFromSuperview()
         })
-    }
-}
-
-// MARK:- SETUP UI
-extension ExpenseDetailsVC {
-    fileprivate func setupUI() {
-        title = "Expense Details"
-        view.backgroundColor = .systemBackground
-        
-        
-        view.addSubview(scrollView)
-        scrollView.anchor(top: view.safeTopAnchor,
-                          leading: view.leadingAnchor,
-                          bottom: view.safeBottomAnchor,
-                          trailing: view.trailingAnchor)
-        
-        
-        scrollView.addSubview(container)
-        container.fillSuperview()
-        container.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
-        
-    
-        let vStack = VStackView(arrangedSubviews: [
-            dateLbl, placeLbl, categoryLbl, currencyLbl, costLbl
-        ], spacing: 4)
-        
-        container.addSubview(vStack)
-        vStack.anchor(top: container.topAnchor,
-                      leading: container.leadingAnchor,
-                      bottom: nil,
-                      trailing: container.trailingAnchor,
-                      padding: .init(top: 24, left: 16, bottom: 0, right: 16))
-        
-        
-        container.addSubview(separator)
-        separator.anchor(top: vStack.bottomAnchor,
-                         leading: container.leadingAnchor,
-                         bottom: nil,
-                         trailing: container.trailingAnchor,
-                         padding: .init(top: 16, left: 16, bottom: 0, right: 16),
-                         size: .init(width: 0, height: 0.2))
-        
-        container.addSubview(reciptIV)
-        reciptIV.anchor(top: separator.bottomAnchor,
-                        leading: separator.leadingAnchor,
-                        bottom: container.bottomAnchor,
-                        trailing: separator.trailingAnchor,
-                        padding: .init(top: 16, left: 0, bottom: 0, right: 0),
-                        size: .init(width: 0, height: 500))
-        
     }
 }

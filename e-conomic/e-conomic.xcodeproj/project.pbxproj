@@ -53,6 +53,7 @@
 		345B95BC27693409008C5B75 /* DateFormatter+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95BB27693409008C5B75 /* DateFormatter+Ext.swift */; };
 		345B95C12769E885008C5B75 /* ExpenseVC+SetupUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95C02769E884008C5B75 /* ExpenseVC+SetupUI.swift */; };
 		345B95C32769EBB6008C5B75 /* ExpenseVC+Delegate_DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95C22769EBB6008C5B75 /* ExpenseVC+Delegate_DataSource.swift */; };
+		345B95C52769F502008C5B75 /* ExpenseDetailsVC+SetupUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B95C42769F502008C5B75 /* ExpenseDetailsVC+SetupUI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,7 @@
 		345B95BB27693409008C5B75 /* DateFormatter+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Ext.swift"; sourceTree = "<group>"; };
 		345B95C02769E884008C5B75 /* ExpenseVC+SetupUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExpenseVC+SetupUI.swift"; sourceTree = "<group>"; };
 		345B95C22769EBB6008C5B75 /* ExpenseVC+Delegate_DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExpenseVC+Delegate_DataSource.swift"; sourceTree = "<group>"; };
+		345B95C42769F502008C5B75 /* ExpenseDetailsVC+SetupUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExpenseDetailsVC+SetupUI.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -403,6 +405,7 @@
 			isa = PBXGroup;
 			children = (
 				345B958227679EBB008C5B75 /* ExpenseDetailVC.swift */,
+				345B95C42769F502008C5B75 /* ExpenseDetailsVC+SetupUI.swift */,
 			);
 			path = "Expense Details";
 			sourceTree = "<group>";
@@ -653,6 +656,7 @@
 				345B9597276886D8008C5B75 /* RealmManager.swift in Sources */,
 				345B95B42768D9BE008C5B75 /* FieldValidationResponse.swift in Sources */,
 				345B95892767AE4A008C5B75 /* StoreExpenseVC.swift in Sources */,
+				345B95C52769F502008C5B75 /* ExpenseDetailsVC+SetupUI.swift in Sources */,
 				341DD6FD2767553E00507F1F /* UILabel+Init.swift in Sources */,
 				341DD7002767557600507F1F /* UIImageView+Init.swift in Sources */,
 				341DD6BD27674A0E00507F1F /* ExpensesVC.swift in Sources */,
