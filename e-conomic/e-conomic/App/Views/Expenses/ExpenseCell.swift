@@ -11,7 +11,7 @@ import UIKit
 
 class ExpenseCell: BaseCollectionViewCell {
     
-    // MARK:- VARIABLES
+    // MARK: - UI COMPONENTS VARIABLES
     lazy var dateLbl = UILabel(text: "Mon, December 13, 2021", font: .AppleSDGothicNeo(.medium, size: 20), numberOfLines: 1)
     lazy var categoryLbl = UILabel(text: "Category: Food", numberOfLines: 1)
     lazy var currencyLbl = UILabel(text: "Currency: BDT", numberOfLines: 1)
@@ -21,6 +21,30 @@ class ExpenseCell: BaseCollectionViewCell {
 
 }
 
+// MARK: - CONFIGURE CELL WITH DATA
+extension ExpenseCell {
+    func configure(from expense: Expense) {
+        dateLbl.text = DateFormatter.dateTimeFormatter.string(from: Date(milliseconds: expense.date))
+        placeLbl.text = "Spent at: \(expense.placeName)"
+        categoryLbl.text = "Category: \(expense.category)"
+        currencyLbl.text = "Currency: \(expense.currencyName)"
+        costLbl.text = "Total: \(expense.currencySymbol) \(expense.amount)"
+    }
+    
+    /// Make everything nil before reuse
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        dateLbl.text = nil
+        placeLbl.text = nil
+        categoryLbl.text = nil
+        currencyLbl.text = nil
+        costLbl.text = nil
+    }
+}
+
+
+
+// MARK: - SETUP UI COMPONENTS
 extension ExpenseCell {
     override func setupUI() {
 
@@ -46,16 +70,5 @@ extension ExpenseCell {
                          trailing: container.trailingAnchor,
                          padding: .init(top: 16, left: 16, bottom: 4, right: 16),
                          size: .init(width: 0, height: 0.2))
-    }
-}
-
-
-extension ExpenseCell {
-    func configure(from expense: Expense) {
-        dateLbl.text = DateFormatter.dateTimeFormatter.string(from: Date(milliseconds: expense.date))
-        placeLbl.text = "Spent at: \(expense.placeName)"
-        categoryLbl.text = "Category: \(expense.category)"
-        currencyLbl.text = "Currency: \(expense.currencyName)"
-        costLbl.text = "Total: \(expense.currencySymbol) \(expense.amount)"
     }
 }
