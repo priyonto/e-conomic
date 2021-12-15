@@ -8,6 +8,8 @@
 
 import UIKit
 
+// MARK: - Vertical Stack View
+/// A helper class to create vertical stackview with a single line of code
 class VStackView: UIStackView {
     
     init(arrangedSubviews: [UIView], spacing: CGFloat = 0) {

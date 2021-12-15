@@ -8,8 +8,9 @@
 
 import UIKit
 
+// MARK: - Horizontal Stack View
+/// A helper class to create horizontal stackview with a single line of code
 class HStackView: UIStackView {
-    
     
     init(arrangedSubviews: [UIView], spacing: CGFloat = 0) {
         super.init(frame: .zero)
