@@ -114,15 +114,14 @@ class StoreExpenseVC: UIViewController {
 extension StoreExpenseVC {
     
     fileprivate func bindViewModel() {
+        
         viewModel.fieldValidationResult = { [weak self] (result) in
             guard let self = self else {return}
             switch result {
             case .success:
                 self.viewModel.store(imageData: self.captureReceipt.pngData()!)
             case .failure(let field):
-                print(field)
-                // Show error
-                return
+                self.alert(title: Constants.requiredFieldTitle, message: field.message)
             }
         }
         
@@ -133,7 +132,7 @@ extension StoreExpenseVC {
                 self.makeRequest(with: url!)
             } else {
                 // image not stored and we can not proceed
-                // show error here
+                self.alert(title: Constants.errorOccured, message: Constants.imageStoreErrorMsg)
             }
         }
         
@@ -142,7 +141,7 @@ extension StoreExpenseVC {
             if success {
                 // show success alert
                 // and then dismiss on okay
-                self.dismiss(animated: true, completion: nil)
+                self.alert(title: Constants.success, message: Constants.expenseStoreSuccess, dismissController: true)
             } else {
                 // show some error
             }
@@ -223,5 +222,17 @@ extension StoreExpenseVC {
     func handleSelectedDate(with date: Date) {
         selectedDate = date.millisecondsSince1970
         dateTextField.text = DateFormatter.dateTimeFormatter.string(from: date)
+    }
+    
+    func alert(title: String?, message: String?, dismissController: Bool = false) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let OKAction = UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
+            guard let self = self else {return}
+            if dismissController {
+                self.dismiss(animated: true, completion: nil)
+            }
+        })
+        alertController.addAction(OKAction)
+        self.present(alertController, animated: true, completion: nil)
     }
 }

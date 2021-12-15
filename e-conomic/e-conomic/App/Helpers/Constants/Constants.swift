@@ -19,5 +19,18 @@ struct Constants {
     
     
     // MARK: - Alert messages
+    // Title
+    static let success = "Success"
+    static let errorOccured = "We are sorry!"
+    static let requiredFieldTitle = "Required field"
     
+    
+    // MARK: - Image error
+    static let imageStoreErrorMsg = "Image could not be stored. Please try again."
+    
+    // MARK: - Data store error
+    static let expenseStoreErrorMsg = "Expense could not be stored. Please try again."
+    
+    // MARK: - Success
+    static let expenseStoreSuccess = "Expense record created successfully."
 }
