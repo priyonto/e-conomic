@@ -101,8 +101,12 @@ class StoreExpenseVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        bindViewModel()
         setupDatePicker()
+        bindViewModel()
+        renderImageView()
+    }
+    
+    fileprivate func renderImageView() {
         reciptIV.image = captureReceipt
     }
 }
@@ -145,7 +149,15 @@ extension StoreExpenseVC {
         }
         
     }
+
+}
+
+// MARK: - Actions
+
+extension StoreExpenseVC {
     
+    /// This method passes the textfield values to the viewmodel to validate
+    /// Viewmodel then passes the validated results to the controller with help of closure
     fileprivate func validateTextFields() {
         viewModel.validateTextFields(place_name: nameTextField.text,
                                      date: selectedDate,
@@ -154,7 +166,8 @@ extension StoreExpenseVC {
                                      category: categoryTextField.text)
     }
     
-    
+    /// This method passes the validated value of the textfields to the viewmodel to store them to the database
+    /// Viewmodel then stores the values to the database and notify controller the result
     fileprivate func makeRequest(with url: URL) {
         let expense = Expense(id: "",
                               date: selectedDate,
@@ -166,12 +179,8 @@ extension StoreExpenseVC {
                               receiptURL: url)
         viewModel.store(with: expense)
     }
-
-}
-
-// MARK: - Actions
-
-extension StoreExpenseVC {
+    
+    
     /// Button action on record create tap
     /// This starts validating the textfields
     @objc fileprivate func handleRecordCreateTap() {
