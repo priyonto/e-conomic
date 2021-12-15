@@ -95,7 +95,7 @@ class StoreExpenseVC: UIViewController {
     }()
     
     // MARK: - CONSTANTS
-    fileprivate let viewModel = ExpenseViewModel()
+    fileprivate var viewModel = ExpenseStoreViewModel()
     
     
     override func viewDidLoad() {
